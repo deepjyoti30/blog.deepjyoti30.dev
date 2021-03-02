@@ -1,13 +1,13 @@
 <template>
   <div>
-    <h2>Mountain: {{ post }}</h2>
-    <p>Path: {{ $route.path }}</p>
-    <NuxtLink to="/">Back to Mountains</NuxtLink>
+    <post-content :post="post" />
   </div>
 </template>
 
 <script>
+import PostContent from '~/components/PostContent.vue'
 export default {
+  components: { PostContent },
   data() {
     return {
       post: this.$route.params.parent,
