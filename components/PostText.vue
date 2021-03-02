@@ -14,18 +14,16 @@ export default {
 
 <style lang="scss" scoped>
 .post--text__container {
-    @apply text-base;
+    @apply my-20;
+    @apply text-lg;
     @apply text-gray-700;
-
-    ::v-deep p {
-        @apply my-2;
-    }
 
     ::v-deep h1 {
         @apply text-5xl;
     }
 
     ::v-deep {
+        h1 { @apply text-5xl; }
         h2 { @apply text-3xl; }
         h3 { @apply text-2xl; }
         h4 { @apply text-xl; }
@@ -37,8 +35,26 @@ export default {
             @apply font-medium;
         }
 
+        p {
+            @apply my-2;
+
+            strong {
+                @apply font-medium;
+            }
+        }
+
         img {
             @apply my-4;
+        }
+
+        blockquote {
+            background: lighten($yellow, 15);
+            @apply border-l-8;
+            @apply p-2;
+            @apply pl-4;
+            @apply my-4;
+            @apply rounded;
+            @apply border-customyellow;
         }
     }
 }
