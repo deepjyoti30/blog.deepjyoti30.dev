@@ -1,15 +1,15 @@
 <template>
   <div>
       <div v-for="post in posts" :key="post.post_id">
-        <nuxt-link :to="{path: post.slug, name: 'post', params: {parent: post, post: post.slug}}">
-          <h1>{{post.title}}</h1>
-        </nuxt-link>
+        <post-preview :post="post" />
       </div>
   </div>
 </template>
 
 <script>
+import PostPreview from '~/components/PostPreview.vue'
 export default {
+  components: { PostPreview },
   async asyncData() {
     const posts = await fetch(
       'https://apis.deepjyoti30.dev/blog/posts'
