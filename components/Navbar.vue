@@ -18,6 +18,10 @@
         .links__container {
             a {
                 @apply mr-4;
+
+                &.nuxt-link-exact-active {
+                    color: $green;
+                }
             }
         }
     }
