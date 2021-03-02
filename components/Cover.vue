@@ -4,7 +4,7 @@
             :src="getCover"
             alt="Post cover"
             loading="lazy"
-            class="rounded-md"
+            class="rounded"
       />
     </div>
 </template>
