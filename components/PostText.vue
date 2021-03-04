@@ -92,8 +92,7 @@ export default {
         }
 
         pre {
-            white-space: pre-wrap;
-            white-space: -moz-pre-wrap;
+            overflow: auto;
             
             @apply p-4;
             @apply text-sm;
