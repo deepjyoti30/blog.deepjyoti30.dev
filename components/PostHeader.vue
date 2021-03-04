@@ -1,15 +1,21 @@
 <template>
     <div class="post--header__container">
         <h1 class="md:text-4xl text-3xl dm-sans font-semibold text-darkblue">{{post.title}}</h1>
-        <div class="more--details md:flex text-gray-500 md:mt-4 my-8 font-medium">
+        <div class="more--details md:flex text-gray-500 md:mt-4 md:my-0 mt-8 mb-2 font-medium">
             <div class="author--details inline-flex items-center">
                 <span class="author--name text-darkblue">{{post.author.name}}</span>
                 <span class="author--username ml-3">@{{post.author.username}}</span>
             </div>
             <div class="separator md:h-5 md:w-0.5 h-0.5 w-10 bg-skyblue md:mx-2 my-2"></div>
             <div class="time--details inline-flex items-center">
-                <span class="date">{{getDate}}</span>
-                <span class="time ml-3">{{getTime}}</span>
+                <span class="date mr-1.5">{{getDate}}</span>
+                <span>&bullet;</span>
+                <span class="time ml-1.5">{{getTime}}</span>
+            </div>
+        </div>
+        <div class="tag--details md:my-4 my-2 inline-flex flex-wrap">
+            <div class="tag--each rounded text-gray-500 bg-gray-100 px-1 py-0.5 mt-1" v-for="(tag, id) in post.tags.tags_list" :key="id">
+                {{tag}}
             </div>
         </div>
     </div>
@@ -39,3 +45,15 @@ export default {
     }
 }
 </script>
+
+<style lang="scss" scoped>
+.tag--details {
+    .tag--each {
+        @apply mr-2;
+
+        &:last-child {
+            @apply mr-0;
+        }
+    }
+}
+</style>
