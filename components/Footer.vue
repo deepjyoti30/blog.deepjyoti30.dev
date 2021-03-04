@@ -1,20 +1,20 @@
 <template>
     <div class="footer__container">
         <div class="top--statement"></div>
-        <div class="bottom--content mt-8 py-6 border-t-2 text-gray-500 text-center">
+        <div class="bottom--content mt-8 py-6 md:flex md:justify-between border-t-2 text-gray-500 text-center">
             <div class="copyright--content">
-                © 2020-Present Deepjyoti Barman. All rights reserved.
+                © 2021-Present Deepjyoti Barman
             </div>
-            <div class="social--content inline-flex mr-auto ml-auto md:mt-4 mt-6">
-                <span>
+            <div class="social--content inline-flex md:mt-0 mt-6">
+                <a href="https://deepjyoti30.dev/github" target="_blank" rel="noreferrer noopener">
                     <github-icon class="icon" />
-                </span>
-                <span>
+                </a>
+                <a href="https://twitter.com/DeepBarman30" target="_blank" rel="noreferrer noopener">
                     <twitter-icon class="icon" />
-                </span>
-                <span>
+                </a>
+                <a href="mailto:hello@deepjyoti30.dev" target="_blank" rel="noreferrer noopener">
                     <mail-icon class="icon" />
-                </span>
+                </a>
             </div>
         </div>
     </div>
@@ -34,7 +34,7 @@ export default {
 
 <style lang="scss" scoped>
 .social--content {
-    span {
+    a {
         @apply mx-2;
 
         .icon {
