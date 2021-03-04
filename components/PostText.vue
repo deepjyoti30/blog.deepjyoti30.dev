@@ -45,14 +45,15 @@ export default {
         }
 
         img {
+            @apply rounded;
             @apply my-4;
         }
 
         blockquote {
             background: lighten($yellow, 15);
             @apply border-l-8;
-            @apply p-2;
-            @apply pl-4;
+            @apply py-2;
+            @apply px-4;
             @apply my-4;
             @apply rounded;
             @apply border-customyellow;
@@ -69,8 +70,12 @@ export default {
             white-space: -moz-pre-wrap;
             
             @apply p-4;
-            @apply rounded;
             @apply text-sm;
+        }
+
+        .codehilite {
+            @apply rounded;
+            @apply my-4;
         }
     }
 }

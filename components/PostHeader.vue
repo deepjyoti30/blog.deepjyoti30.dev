@@ -1,7 +1,7 @@
 <template>
     <div class="post--header__container">
-        <h1 class="text-3xl dm-sans font-medium text-darkblue">{{post.title}}</h1>
-        <div class="more--details flex text-gray-500 mt-4 font-medium">
+        <h1 class="md:text-4xl text-3xl dm-sans font-semibold text-darkblue">{{post.title}}</h1>
+        <div class="more--details flex text-gray-500 md:mt-4 my-8 font-medium">
             <div class="author--details inline-flex items-center">
                 <span class="author--name text-darkblue">{{post.author.name}}</span>
                 <span class="author--username ml-3">@{{post.author.username}}</span>
