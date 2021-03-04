@@ -5,12 +5,9 @@
             <div class="copyright--content">
                 © 2020-Present Deepjyoti Barman. All rights reserved.
             </div>
-            <div class="social--content inline-flex mr-auto ml-auto mt-4">
+            <div class="social--content inline-flex mr-auto ml-auto md:mt-4 mt-6">
                 <span>
                     <github-icon class="icon" />
-                </span>
-                <span>
-                    <linkedin-icon class="icon" />
                 </span>
                 <span>
                     <twitter-icon class="icon" />
@@ -24,13 +21,12 @@
 </template>
 
 <script>
-import { GithubIcon, TwitterIcon, LinkedinIcon, MailIcon } from "vue-feather-icons";
+import { GithubIcon, TwitterIcon, MailIcon } from "vue-feather-icons";
 
 export default {
     components: {
         GithubIcon,
         TwitterIcon,
-        LinkedinIcon,
         MailIcon
     }
 }
