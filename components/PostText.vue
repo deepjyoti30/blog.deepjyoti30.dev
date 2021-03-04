@@ -42,6 +42,13 @@ export default {
             strong {
                 @apply font-medium;
             }
+
+            code {
+                @apply rounded;
+                @apply bg-yellow-100;
+                @apply text-base;
+                padding: 1px 3px;
+            }
         }
 
         img {
@@ -58,11 +65,30 @@ export default {
             @apply rounded;
             @apply border-customyellow;
             @apply text-yellow-800;
+
+            code {
+                @apply rounded;
+                @apply bg-yellow-300;
+                @apply text-base;
+                padding: 1px 3px;
+            }
+
+            a {
+                @apply text-yellow-700;
+                @apply border-yellow-700;
+            }
         }
 
         li {
             @apply list-inside;
             @apply list-disc;
+
+            code {
+                @apply rounded;
+                @apply bg-yellow-100;
+                @apply text-base;
+                padding: 1px 3px;
+            }
         }
 
         pre {
@@ -76,6 +102,19 @@ export default {
         .codehilite {
             @apply rounded;
             @apply my-4;
+        }
+
+        a {
+            @apply text-indigo-500;
+            @apply border-b-2;
+            @apply font-medium;
+            @apply border-indigo-500;
+            transition: 0.1s ease;
+
+            &:hover {
+                @apply border-b-4;
+                transition: 0.1s ease;
+            }
         }
     }
 }
