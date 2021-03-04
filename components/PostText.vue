@@ -1,5 +1,5 @@
 <template>
-    <div class="post--text__container mt-8" v-html="content"></div>
+    <div class="post--text__container" v-html="content"></div>
 </template>
 
 <script>
@@ -14,7 +14,8 @@ export default {
 
 <style lang="scss" scoped>
 .post--text__container {
-    @apply my-20;
+    @apply mb-20 ;
+    @apply mt-10;
     @apply text-lg;
     @apply text-gray-700;
 
@@ -23,8 +24,6 @@ export default {
     }
 
     ::v-deep {
-        @import "~/assets/scss/_manni.scss";
-
         h1 { @apply text-5xl; }
         h2 { @apply text-3xl; }
         h3 { @apply text-2xl; }
@@ -68,6 +67,10 @@ export default {
         pre {
             white-space: pre-wrap;
             white-space: -moz-pre-wrap;
+            
+            @apply p-4;
+            @apply rounded;
+            @apply text-sm;
         }
     }
 }

@@ -1,7 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'blog-frontend-v2',
+    title: 'Blog | Deepjyoti Barman',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -15,7 +15,7 @@ export default {
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     "~/assets/scss/app.scss",
-    "~/assets/scss/_manni.scss"
+    "~/assets/css/vice.css"
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
