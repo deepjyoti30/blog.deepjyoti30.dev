@@ -1,7 +1,9 @@
 <template>
     <div class="footer__container">
-        <div class="top--statement"></div>
-        <div class="bottom--content mt-8 py-6 md:flex md:justify-between border-t-2 text-gray-500 text-center">
+        <div class="top--statement font-medium text-center text-2xl text-gray-600 dm-sans">
+            I build useful, creative and confident apps.
+        </div>
+        <div class="bottom--content mt-6 py-6 md:flex md:justify-between border-t-2 text-gray-500 text-center">
             <div class="copyright--content">
                 © 2021-Present Deepjyoti Barman
             </div>
