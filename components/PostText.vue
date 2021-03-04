@@ -23,6 +23,8 @@ export default {
     }
 
     ::v-deep {
+        @import "~/assets/scss/_manni.scss";
+
         h1 { @apply text-5xl; }
         h2 { @apply text-3xl; }
         h3 { @apply text-2xl; }
@@ -55,6 +57,17 @@ export default {
             @apply my-4;
             @apply rounded;
             @apply border-customyellow;
+            @apply text-yellow-800;
+        }
+
+        li {
+            @apply list-inside;
+            @apply list-disc;
+        }
+
+        pre {
+            white-space: pre-wrap;
+            white-space: -moz-pre-wrap;
         }
     }
 }

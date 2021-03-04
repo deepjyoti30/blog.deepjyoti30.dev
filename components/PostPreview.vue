@@ -1,6 +1,6 @@
 <template>
     <nuxt-link :to="{path: post.slug, name: 'post', params: {parent: post, post: post.slug}}" class="post--preview__container py-2 mb-4 block">
-        <div class="date__container mb-2 font-medium text-gray-700">
+        <div class="date__container mb-2 text-gray-700 dm-sans font-medium">
             {{getDate}}
         </div>
         <h1 class="text-2xl dm-sans font-bold text-darkblue">
