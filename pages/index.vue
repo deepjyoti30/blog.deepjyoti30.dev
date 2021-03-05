@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-16">
+  <div class="my-16">
       <div v-for="post in posts" :key="post.post_id">
         <post-preview :post="post" />
       </div>
