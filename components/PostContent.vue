@@ -3,6 +3,7 @@
         <post-header :post="post" />
         <cover :post="post" />
         <post-text :content="post.content" />
+        <posts-container :fetchUrl="getRelatedUrl" />
     </div>
 </template>
 
@@ -10,12 +11,25 @@
 import Cover from './Cover.vue'
 import PostHeader from './PostHeader.vue'
 import PostText from './PostText.vue'
+import PostsContainer from './PostsContainer.vue'
+
 export default {
-  components: { PostHeader, Cover, PostText },
+  components: { PostHeader, Cover, PostText, PostsContainer },
     props: {
         post: {
             type: Object,
             default: null
+        }
+    },
+    data: () => {
+        return {
+            baseUrl: "https://apis.deepjyoti30.dev/blog",
+            relatedEndpoint: "/related/",
+        }
+    },
+    computed: {
+        getRelatedUrl() {
+            return `${this.baseUrl}${this.relatedEndpoint}${this.post.post_id}`;
         }
     }
 }
