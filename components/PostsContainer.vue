@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="!$fetchState.pending">
       <div v-for="post in posts" :key="post.post_id">
         <post-preview :post="post" />
       </div>
@@ -20,7 +20,7 @@ export default {
       return {
           posts: {
               type: Object,
-          }
+          },
       }
   },
   watch: {
