@@ -1,5 +1,5 @@
 <template>
-    <div class="post__container mt-16">
+    <div class="post__container my-16">
         <post-header :post="post" />
         <cover :post="post" />
         <post-text :content="post.content" />
