@@ -93,6 +93,10 @@ export default {
 
         pre {
             overflow: auto;
+
+            code {
+                @extend .jetbrains-mono;
+            }
             
             @apply p-4;
             @apply text-sm;
