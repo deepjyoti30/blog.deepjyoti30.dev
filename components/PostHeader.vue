@@ -14,8 +14,10 @@
             </div>
         </div>
         <div class="tag--details my-2 inline-flex flex-wrap">
-            <div class="tag--each rounded text-gray-500 bg-gray-100 px-2 py-0.5 mt-2" v-for="(tag, id) in post.tags.tags_list" :key="id">
-                {{tag}}
+            <div class="tag--each rounded text-gray-500 bg-gray-100 mt-2" v-for="(tag, id) in post.tags.tags_list" :key="id">
+                <nuxt-link :to="`/tags/${tag}`" class="px-2 py-0.5">
+                    {{tag}}
+                </nuxt-link>
             </div>
         </div>
     </div>
