@@ -4,7 +4,7 @@
         <cover :post="post" />
         <post-text :content="post.content" />
         <div class="related--wrapper" v-if="isRelatedLoaded">
-            <posts-container :posts="posts" heading="Read More" />
+            <posts-container :posts="posts" heading="Read More" noHeading />
         </div>
     </div>
 </template>
