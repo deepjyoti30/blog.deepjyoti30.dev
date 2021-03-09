@@ -9,7 +9,7 @@
         <div class="extended--details mt-2 text-gray-700">
             {{post.read_time.text}}
         </div>
-        <p class="desc text-gray-600 mt-2">{{post.description}}</p>
+        <p class="desc text-gray-500 mt-2">{{post.description}}</p>
     </nuxt-link>
 </template>
 
