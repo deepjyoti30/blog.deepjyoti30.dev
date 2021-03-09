@@ -57,7 +57,7 @@ export default {
         }
 
         blockquote {
-            background: lighten($yellow, 15);
+            background: lighten($yellow, 20);
             @apply border-l-8;
             @apply py-2;
             @apply px-4;
@@ -68,7 +68,7 @@ export default {
 
             code {
                 @apply rounded;
-                @apply bg-yellow-300;
+                @apply bg-customyellow;
                 @apply text-base;
                 padding: 1px 3px;
             }
