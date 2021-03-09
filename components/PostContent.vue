@@ -3,7 +3,9 @@
         <post-header :post="post" />
         <cover :post="post" />
         <post-text :content="post.content" />
-        <posts-container :fetchUrl="getRelatedUrl" />
+        <div class="related--wrapper" v-if="isRelatedLoaded">
+            <posts-container :posts="posts" />
+        </div>
     </div>
 </template>
 
@@ -25,12 +27,25 @@ export default {
         return {
             baseUrl: "https://apis.deepjyoti30.dev/blog",
             relatedEndpoint: "/related/",
+            posts: Array,
+            isRelatedLoaded: false
         }
     },
     computed: {
         getRelatedUrl() {
             return `${this.baseUrl}${this.relatedEndpoint}${this.post.post_id}`;
         }
+    },
+    watch: {
+        "post": "$fetch"
+    },
+    async fetch() {
+        // Fetch the related posts
+        this.posts = await fetch(
+          this.getRelatedUrl
+        ).then((res) => res.json())
+
+        this.isRelatedLoaded = true
     }
 }
 </script>
