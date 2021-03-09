@@ -3,33 +3,33 @@ module.exports = {
         extend: {
             colors: {
                 redpink: {
-                    DEFAULT: "#EF476F"
+                    DEFAULT: '#EF476F',
                 },
                 customyellow: {
-                    DEFAULT: "#FFD166"
+                    DEFAULT: '#FFD166',
                 },
                 customgreen: {
-                    DEFAULT: "#06D6A0",
+                    DEFAULT: '#06D6A0',
                 },
                 skyblue: {
-                    DEFAULT: "#118AB2"
+                    DEFAULT: '#118AB2',
                 },
                 darkblue: {
-                    DEFAULT: "#073B4C"
-                }
-            }
-        }
+                    DEFAULT: '#073B4C',
+                },
+            },
+        },
     },
     variants: {},
     plugins: [],
     purge: {
-      enabled: process.env.NODE_ENV === 'production',
-      content: [
-        'components/**/*.vue',
-        'layouts/**/*.vue',
-        'pages/**/*.vue',
-        'plugins/**/*.js',
-        'nuxt.config.js',
-      ]
-    }
-  }
+        enabled: process.env.NODE_ENV === 'production',
+        content: [
+            'components/**/*.vue',
+            'layouts/**/*.vue',
+            'pages/**/*.vue',
+            'plugins/**/*.js',
+            'nuxt.config.js',
+        ],
+    },
+}

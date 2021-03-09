@@ -1,12 +1,12 @@
 <template>
-    <div class="post__container my-16">
-        <post-header :post="post" />
-        <cover :post="post" />
-        <post-text :content="post.content" />
-        <div class="related--wrapper" v-if="isRelatedLoaded">
-            <posts-container :posts="posts" heading="Read More" noHeading />
-        </div>
+  <div class="post__container my-16">
+    <PostHeader :post="post" />
+    <Cover :post="post" />
+    <PostText :content="post.content" />
+    <div v-if="isRelatedLoaded" class="related--wrapper">
+      <PostsContainer :posts="posts" heading="Read More" no-heading />
     </div>
+  </div>
 </template>
 
 <script>
@@ -17,35 +17,33 @@ import PostsContainer from './PostsContainer.vue'
 
 export default {
   components: { PostHeader, Cover, PostText, PostsContainer },
-    props: {
-        post: {
-            type: Object,
-            default: null
-        }
+  props: {
+    post: {
+      type: Object,
+      default: null,
     },
-    data: () => {
-        return {
-            baseUrl: "https://apis.deepjyoti30.dev/blog",
-            relatedEndpoint: "/related/",
-            posts: Array,
-            isRelatedLoaded: false
-        }
-    },
-    computed: {
-        getRelatedUrl() {
-            return `${this.baseUrl}${this.relatedEndpoint}${this.post.post_id}`;
-        }
-    },
-    watch: {
-        "post": "$fetch"
-    },
-    async fetch() {
-        // Fetch the related posts
-        this.posts = await fetch(
-          this.getRelatedUrl
-        ).then((res) => res.json())
-
-        this.isRelatedLoaded = true
+  },
+  data: () => {
+    return {
+      baseUrl: 'https://apis.deepjyoti30.dev/blog',
+      relatedEndpoint: '/related/',
+      posts: Array,
+      isRelatedLoaded: false,
     }
+  },
+  async fetch() {
+    // Fetch the related posts
+    this.posts = await fetch(this.getRelatedUrl).then((res) => res.json())
+
+    this.isRelatedLoaded = true
+  },
+  computed: {
+    getRelatedUrl() {
+      return `${this.baseUrl}${this.relatedEndpoint}${this.post.post_id}`
+    },
+  },
+  watch: {
+    post: '$fetch',
+  },
 }
 </script>
