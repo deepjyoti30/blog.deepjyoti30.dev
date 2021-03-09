@@ -1,6 +1,6 @@
 <template>
   <div>
-      <h1 class="container--heading text-2xl mb-6 font-medium">{{heading}}</h1>
+      <h1 v-if="!noHeading" class="container--heading text-3xl text-gray-700 dm-sans mb-8 font-semibold">{{heading}}</h1>
       <div v-for="post in posts" :key="post.post_id">
         <post-preview :post="post" />
       </div>
@@ -19,6 +19,10 @@ export default {
       heading: {
         type: String,
         default: "Blog Posts"
+      },
+      noHeading: {
+        type: Boolean,
+        default: false
       }
   }
 }

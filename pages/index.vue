@@ -1,6 +1,6 @@
 <template>
   <div class="my-16">
-      <posts-container :posts="posts" />
+      <posts-container :posts="posts" noHeading />
   </div>
 </template>
 
