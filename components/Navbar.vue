@@ -5,17 +5,36 @@
         <img
           src="~/assets/img/logo.png"
           alt="Brand Logo"
-          height="35"
-          width="35"
+          height="30"
+          width="30"
         />
       </div>
       <div class="links__container inline-flex items-center">
-        <nuxt-link to="/">Posts</nuxt-link>
-        <a href="https://deepjyoti30.dev" rel="noopener noreferrer">About</a>
+        <div class="links">
+          <nuxt-link to="/">Posts</nuxt-link>
+          <a href="https://deepjyoti30.dev" rel="noopener noreferrer">About</a>
+        </div>
+        <div class="separator h-5 w-1 mx-4 bg-customgreen"></div>
+        <div class="quicks flex items-center">
+          <button type="button" class="quick-btn">
+            <MoonIcon size="1.1x" />
+          </button>
+          <button type="button" class="quick-btn">
+            <RssIcon size="1.1x" />
+          </button>
+        </div>
       </div>
     </div>
   </nav>
 </template>
+
+<script>
+import { MoonIcon, RssIcon } from 'vue-feather-icons'
+
+export default {
+  components: { MoonIcon, RssIcon },
+}
+</script>
 
 <style lang="scss" scoped>
 .navbar__container {
@@ -24,8 +43,22 @@
       a {
         @apply mr-4;
 
+        &:last-child {
+          @apply mr-0;
+        }
+
         &.nuxt-link-exact-active {
           color: $green;
+        }
+      }
+
+      .quicks {
+        .quick-btn {
+          @apply mr-4;
+
+          &:last-child {
+            @apply mr-0;
+          }
         }
       }
     }
