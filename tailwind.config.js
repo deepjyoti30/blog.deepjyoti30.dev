@@ -20,6 +20,7 @@ module.exports = {
             },
         },
     },
+    darkMode: 'class',
     variants: {},
     plugins: [],
     purge: {

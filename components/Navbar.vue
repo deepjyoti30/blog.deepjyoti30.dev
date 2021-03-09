@@ -1,6 +1,8 @@
 <template>
   <nav class="navbar__container">
-    <div class="navbar flex justify-between py-6 dm-sans text-lg">
+    <div
+      class="navbar flex justify-between py-6 dm-sans text-lg dark:text-white"
+    >
       <div class="brand__container font-medium">
         <img
           src="~/assets/img/logo.png"
@@ -16,7 +18,7 @@
         </div>
         <div class="separator h-5 w-1 mx-4 bg-customgreen"></div>
         <div class="quicks flex items-center">
-          <button type="button" class="quick-btn">
+          <button type="button" class="quick-btn" @click="enableDarkMode">
             <MoonIcon size="1.1x" />
           </button>
           <button type="button" class="quick-btn">
@@ -33,6 +35,11 @@ import { MoonIcon, RssIcon } from 'vue-feather-icons'
 
 export default {
   components: { MoonIcon, RssIcon },
+  methods: {
+    enableDarkMode: function () {
+      document.querySelector('body').classList.add('dark')
+    },
+  },
 }
 </script>
 
