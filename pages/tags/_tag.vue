@@ -1,6 +1,6 @@
 <template>
     <div class="tags--posts__container my-16">
-        <posts-container :posts="posts" />
+        <posts-container :posts="posts" :heading="`Posts for ${tag}`" />
     </div>
 </template>
 
@@ -17,7 +17,8 @@ export default {
         ).then(res => res.json())
 
         return {
-            posts
+            posts,
+            tag: params.tag
         }
     }
 }
