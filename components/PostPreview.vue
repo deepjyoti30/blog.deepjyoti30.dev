@@ -1,14 +1,7 @@
 <template>
-  <component
-    :is="post.on_dev ? 'a' : 'nuxt-link'"
-    :to="{
-      path: post.slug,
-      name: 'post',
-      params: { parent: post, post: post.slug },
-    }"
-    :href="post.dev_link"
-    target="_blank"
-    rel="noopener noreferrer"
+  <nuxt-link
+    :to="getPostLink"
+    :target="post.on_dev ? '_blank' : null"
     class="post--preview__container py-2 mb-4 block"
   >
     <div
@@ -23,7 +16,7 @@
       {{ post.read_time.text }}
     </div>
     <p class="desc text-gray-500 mt-2">{{ post.description }}</p>
-  </component>
+  </nuxt-link>
 </template>
 
 <script>
@@ -45,6 +38,20 @@ export default {
       return new Date(this.post.updated_at).toLocaleString('en-US', {
         dateStyle: 'medium',
       })
+    },
+    getPostLink() {
+      // Get the router link for the post
+      if (this.post.on_dev)
+        return {
+          name: 'dev',
+          query: { url: this.post.dev_link },
+        }
+
+      return {
+        path: this.post.slug,
+        name: 'post',
+        params: { parent: this.post, post: this.post.slug },
+      }
     },
   },
 }
