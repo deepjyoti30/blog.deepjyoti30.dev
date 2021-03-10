@@ -7,13 +7,15 @@
     }"
     class="post--preview__container py-2 mb-4 block"
   >
-    <div class="date__container mb-2 text-gray-700 dm-sans font-medium">
+    <div
+      class="date__container mb-2 text-gray-700 dark:text-gray-400 dm-sans font-medium"
+    >
       {{ getDate }}
     </div>
     <h1 class="text-2xl dm-sans font-bold text-darkblue">
       {{ post.title }}
     </h1>
-    <div class="extended--details mt-2 text-gray-700">
+    <div class="extended--details mt-2 text-gray-700 dark:text-gray-400">
       {{ post.read_time.text }}
     </div>
     <p class="desc text-gray-500 mt-2">{{ post.description }}</p>
@@ -25,6 +27,7 @@ export default {
   props: {
     post: {
       type: Object,
+      default: null,
     },
   },
   computed: {

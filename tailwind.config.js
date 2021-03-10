@@ -16,6 +16,7 @@ module.exports = {
                 },
                 darkblue: {
                     DEFAULT: '#073B4C',
+                    dark: '#79D5F3',
                 },
             },
         },
