@@ -18,8 +18,9 @@
         </div>
         <div class="separator h-5 w-1 mx-4 bg-customgreen"></div>
         <div class="quicks flex items-center">
-          <button type="button" class="quick-btn" @click="enableDarkMode">
-            <MoonIcon size="1.1x" />
+          <button type="button" class="quick-btn" @click="toggleDarkMode">
+            <MoonIcon v-if="!isDark" size="1.1x" />
+            <SunIcon v-else size="1.1x" />
           </button>
           <button type="button" class="quick-btn">
             <RssIcon size="1.1x" />
@@ -31,13 +32,27 @@
 </template>
 
 <script>
-import { MoonIcon, RssIcon } from 'vue-feather-icons'
+import { MoonIcon, SunIcon, RssIcon } from 'vue-feather-icons'
 
 export default {
-  components: { MoonIcon, RssIcon },
+  components: { MoonIcon, RssIcon, SunIcon },
+  data() {
+    return {
+      isDark: false,
+    }
+  },
   methods: {
     enableDarkMode: function () {
       document.querySelector('body').classList.add('dark')
+      this.isDark = true
+    },
+    disableDarkMode: function () {
+      document.querySelector('body').classList.remove('dark')
+      this.isDark = false
+    },
+    toggleDarkMode: function () {
+      // Toggle the theme
+      this.isDark ? this.disableDarkMode() : this.enableDarkMode()
     },
   },
 }
