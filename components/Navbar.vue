@@ -5,7 +5,15 @@
     >
       <div class="brand__container font-medium">
         <img
+          v-if="!isDark"
           src="~/assets/img/logo.png"
+          alt="Brand Logo"
+          height="30"
+          width="30"
+        />
+        <img
+          v-else
+          src="~/assets/img/logo_white.png"
           alt="Brand Logo"
           height="30"
           width="30"
