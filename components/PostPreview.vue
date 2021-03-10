@@ -1,10 +1,14 @@
 <template>
-  <nuxt-link
+  <component
+    :is="post.on_dev ? 'a' : 'nuxt-link'"
     :to="{
       path: post.slug,
       name: 'post',
       params: { parent: post, post: post.slug },
     }"
+    :href="post.dev_link"
+    target="_blank"
+    rel="noopener noreferrer"
     class="post--preview__container py-2 mb-4 block"
   >
     <div
@@ -19,7 +23,7 @@
       {{ post.read_time.text }}
     </div>
     <p class="desc text-gray-500 mt-2">{{ post.description }}</p>
-  </nuxt-link>
+  </component>
 </template>
 
 <script>
