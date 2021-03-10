@@ -28,7 +28,7 @@
         <div class="quicks flex items-center">
           <button type="button" class="quick-btn" @click="toggleDarkMode">
             <MoonIcon v-if="!isDark" size="1.1x" />
-            <SunIcon v-else size="1.1x" />
+            <SunIcon v-else class="sun--icon" size="1.1x" />
           </button>
           <button type="button" class="quick-btn">
             <RssIcon size="1.1x" />
@@ -93,6 +93,10 @@ export default {
           &:focus {
             outline: none;
             border: none;
+          }
+
+          .sun--icon {
+            color: $yellow;
           }
         }
       }
