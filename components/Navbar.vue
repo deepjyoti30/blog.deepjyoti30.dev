@@ -18,11 +18,7 @@
         </div>
         <div class="separator h-5 w-1 mx-4 bg-customgreen"></div>
         <div class="quicks flex items-center">
-          <button
-            type="button"
-            class="quick-btn outline-none"
-            @click="enableDarkMode"
-          >
+          <button type="button" class="quick-btn" @click="enableDarkMode">
             <MoonIcon size="1.1x" />
           </button>
           <button type="button" class="quick-btn">
@@ -69,6 +65,11 @@ export default {
 
           &:last-child {
             @apply mr-0;
+          }
+
+          &:focus {
+            outline: none;
+            border: none;
           }
         }
       }
