@@ -1,13 +1,17 @@
 <template>
   <div class="post--header__container">
-    <h1 class="md:text-4xl text-3xl dm-sans font-semibold text-darkblue">
+    <h1
+      class="md:text-4xl text-3xl dm-sans font-semibold text-darkblue dark:text-darkblue-300"
+    >
       {{ post.title }}
     </h1>
     <div
-      class="more--details md:flex text-gray-500 md:mt-4 md:my-0 mt-8 mb-2 font-medium"
+      class="more--details md:flex text-gray-500 dark:text-gray-400 md:mt-4 md:my-0 mt-8 mb-2 font-medium"
     >
       <div class="author--details inline-flex items-center">
-        <span class="author--name text-darkblue">{{ post.author.name }}</span>
+        <span class="author--name text-darkblue dark:text-darkblue-300">{{
+          post.author.name
+        }}</span>
         <span class="author--username ml-3">@{{ post.author.username }}</span>
       </div>
       <div
@@ -23,7 +27,7 @@
       <div
         v-for="(tag, id) in post.tags.tags_list"
         :key="id"
-        class="tag--each rounded text-gray-500 bg-gray-100 mt-2"
+        class="tag--each rounded text-gray-500 dark:text-gray-100 bg-gray-100 dark:bg-gray-700 mt-2"
       >
         <nuxt-link :to="`/tags/${tag}`" class="px-2 py-0.5">
           {{ tag }}
@@ -38,6 +42,7 @@ export default {
   props: {
     post: {
       type: Object,
+      default: null,
     },
   },
   computed: {
