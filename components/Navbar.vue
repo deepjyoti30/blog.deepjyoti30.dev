@@ -24,7 +24,7 @@
           <nuxt-link to="/">Posts</nuxt-link>
           <a href="https://deepjyoti30.dev" rel="noopener noreferrer">About</a>
         </div>
-        <div class="separator h-5 w-1 mx-4 bg-customgreen"></div>
+        <div class="separator h-5 w-0.5 mx-4 bg-customgreen"></div>
         <div class="quicks flex items-center">
           <button type="button" class="quick-btn" @click="toggleDarkMode">
             <MoonIcon v-if="!isDark" size="1.1x" />
