@@ -97,6 +97,7 @@ export default {
 
           .sun--icon {
             color: $yellow;
+            fill: $yellow;
           }
         }
       }
