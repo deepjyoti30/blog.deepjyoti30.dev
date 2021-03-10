@@ -12,7 +12,7 @@
     >
       {{ getDate }}
     </div>
-    <h1 class="text-2xl dm-sans font-bold text-darkblue">
+    <h1 class="text-2xl dm-sans font-bold text-darkblue dark:text-darkblue-300">
       {{ post.title }}
     </h1>
     <div class="extended--details mt-2 text-gray-700 dark:text-gray-400">
