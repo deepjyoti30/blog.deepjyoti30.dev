@@ -2,7 +2,7 @@
   <div>
     <h1
       v-if="!noHeading"
-      class="container--heading text-lg text-gray-700 dm-sans mb-6 font-semibold"
+      class="container--heading text-lg text-gray-700 dark:text-gray-300 dm-sans mb-6 font-semibold"
     >
       {{ heading }}
     </h1>
