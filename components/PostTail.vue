@@ -1,8 +1,6 @@
 <template>
   <div class="post--tail__container my-5">
-    <div class="share--content">
-      <Share />
-    </div>
+    <div class="share--content"></div>
     <div class="tag--details my-2 inline-flex flex-wrap">
       <div
         v-for="(tag, id) in post.tags.tags_list"
@@ -18,9 +16,8 @@
 </template>
 
 <script>
-import Share from './Share.vue'
 export default {
-  components: { Share },
+  components: {},
   props: {
     post: {
       type: Object,
