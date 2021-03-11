@@ -10,6 +10,7 @@ module.exports = {
                 },
                 customgreen: {
                     DEFAULT: '#06D6A0',
+                    600: '#DDFEF5',
                 },
                 skyblue: {
                     DEFAULT: '#118AB2',
