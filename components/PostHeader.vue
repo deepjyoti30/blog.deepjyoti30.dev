@@ -24,7 +24,7 @@
           <span class="time ml-1.5">{{ getTime }}</span>
         </div>
       </div>
-      <div class="share--details">
+      <div class="share--details md:my-0 my-4">
         <ShareMini />
       </div>
     </div>
