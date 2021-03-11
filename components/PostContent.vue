@@ -3,6 +3,7 @@
     <PostHeader :post="post" />
     <Cover :post="post" />
     <PostText :content="post.content" />
+    <PostTail :post="post" />
     <div v-if="isRelatedLoaded" class="related--wrapper">
       <PostsContainer :posts="posts" heading="Read More" />
     </div>
@@ -14,9 +15,10 @@ import Cover from './Cover.vue'
 import PostHeader from './PostHeader.vue'
 import PostText from './PostText.vue'
 import PostsContainer from './PostsContainer.vue'
+import PostTail from './PostTail.vue'
 
 export default {
-  components: { PostHeader, Cover, PostText, PostsContainer },
+  components: { PostHeader, Cover, PostText, PostsContainer, PostTail },
   props: {
     post: {
       type: Object,

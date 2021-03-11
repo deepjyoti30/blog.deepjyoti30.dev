@@ -23,26 +23,11 @@
         <span class="time ml-1.5">{{ getTime }}</span>
       </div>
     </div>
-    <div class="tag--details my-2 inline-flex flex-wrap">
-      <div
-        v-for="(tag, id) in post.tags.tags_list"
-        :key="id"
-        class="tag--each rounded text-gray-500 dark:text-gray-100 bg-gray-100 dark:bg-gray-700 mt-2"
-      >
-        <nuxt-link :to="`/tags/${tag}`" class="px-2 py-0.5">
-          {{ tag }}
-        </nuxt-link>
-      </div>
-    </div>
   </div>
 </template>
 
 <script>
-import Share from './Share.vue'
 export default {
-  components: {
-    Share,
-  },
   props: {
     post: {
       type: Object,
@@ -66,15 +51,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss" scoped>
-.tag--details {
-  .tag--each {
-    @apply mr-2;
-
-    &:last-child {
-      @apply mr-0;
-    }
-  }
-}
-</style>

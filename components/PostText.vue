@@ -7,6 +7,7 @@ export default {
   props: {
     content: {
       type: String,
+      default: '',
     },
   },
 }
@@ -14,8 +15,7 @@ export default {
 
 <style lang="scss" scoped>
 .post--text__container {
-  @apply mb-20;
-  @apply mt-10;
+  @apply my-10;
   @apply text-lg;
   @apply text-gray-700 dark:text-gray-400;
 
