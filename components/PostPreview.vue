@@ -4,10 +4,16 @@
     :target="post.on_dev ? '_blank' : null"
     class="post--preview__container py-2 mb-4 block"
   >
-    <div
-      class="date__container mb-2 text-gray-700 dark:text-gray-400 dm-sans font-medium"
-    >
-      {{ getDate }}
+    <div class="post--top--details flex text-gray-700 dark:text-gray-400">
+      <div class="date__container mb-2 dm-sans font-medium">
+        {{ getDate }}
+      </div>
+      <div v-if="post.on_dev" class="flex">
+        <span class="mx-2">&bullet;</span>
+        <span class="external--link__indicatior" title="External link">
+          <ExternalLinkIcon size="1.1x" />
+        </span>
+      </div>
     </div>
     <h1 class="text-2xl dm-sans font-bold text-darkblue dark:text-darkblue-300">
       {{ post.title }}
@@ -20,7 +26,12 @@
 </template>
 
 <script>
+import { ExternalLinkIcon } from 'vue-feather-icons'
+
 export default {
+  components: {
+    ExternalLinkIcon,
+  },
   props: {
     post: {
       type: Object,
