@@ -4,7 +4,7 @@
     <Cover :post="post" />
     <PostText :content="post.content" />
     <PostTail :post="post" />
-    <div v-if="isRelatedLoaded" class="related--wrapper">
+    <div v-if="isRelatedLoaded" class="related--wrapper mt-12">
       <PostsContainer :posts="posts" heading="Read More" />
     </div>
   </div>
