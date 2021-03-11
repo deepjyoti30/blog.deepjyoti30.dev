@@ -24,7 +24,9 @@
           <span class="time ml-1.5">{{ getTime }}</span>
         </div>
       </div>
-      <div class="share--content md:mt-0 mt-2">Share</div>
+      <div class="share--content md:mt-0 mt-2">
+        <Share />
+      </div>
     </div>
     <div class="tag--details my-2 inline-flex flex-wrap">
       <div
@@ -41,7 +43,11 @@
 </template>
 
 <script>
+import Share from './Share.vue'
 export default {
+  components: {
+    Share,
+  },
   props: {
     post: {
       type: Object,
