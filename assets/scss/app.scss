@@ -5,4 +5,8 @@
 
 body {
     @extend .roboto;
+
+    @apply transition;
+    @apply duration-100;
+    @apply ease-in;
 }
