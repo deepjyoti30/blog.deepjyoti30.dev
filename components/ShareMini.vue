@@ -13,6 +13,7 @@
 
 <script>
 import { ShareIcon } from 'vue-feather-icons'
+import { share } from '~/mixins/share'
 import SharePopup from './SharePopup.vue'
 
 export default {
@@ -20,6 +21,7 @@ export default {
     ShareIcon,
     SharePopup,
   },
+  mixins: [share],
   props: {
     post: {
       type: Object,
@@ -30,7 +32,14 @@ export default {
     showShareMenu: function () {
       /**
        * Show the share popup when the button is clicked.
+       *
+       * We need to check if native menu is supported, if so, then
+       * show the native menu.
+       *
+       * Else, we need to show our custom menu.
        */
+      if (this.isNativePresent())
+        return this.showNativeShare(post.title, post.description, post.slug)
       this.$refs.sharePopup.$refs.modal.showModal()
     },
   },
