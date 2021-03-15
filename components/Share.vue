@@ -22,22 +22,30 @@
       >
         <LinkedinIcon class="icon" />
       </a>
-      <button type="button" title="Share Post" class="share--btn">
+      <button
+        type="button"
+        title="Share Post"
+        class="share--btn"
+        @click="showShareMenu()"
+      >
         <ShareIcon class="icon" />
       </button>
     </div>
+    <SharePopup ref="sharePopup" :post="post" />
   </div>
 </template>
 
 <script>
 import { TwitterIcon, LinkedinIcon, ShareIcon } from 'vue-feather-icons'
 import { share } from '~/mixins/share'
+import SharePopup from './SharePopup.vue'
 
 export default {
   components: {
     TwitterIcon,
     LinkedinIcon,
     ShareIcon,
+    SharePopup,
   },
   mixins: [share],
   props: {
@@ -163,6 +171,12 @@ export default {
         url: this.selfUrl,
         text: this.post.description,
       })
+    },
+    showShareMenu: function () {
+      /**
+       * Show the share popup when the button is clicked.
+       */
+      this.$refs.sharePopup.$refs.modal.showModal()
     },
   },
 }
