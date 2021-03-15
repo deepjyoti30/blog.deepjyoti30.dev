@@ -1,6 +1,6 @@
 <template>
   <div class="share--popup__container">
-    <Modal ref="modal" modal-id="share" heading="Share">
+    <Modal ref="modal" modal-id="share" heading="Share" cross-btn>
       <div id="message" class="mb-2">
         <h3
           id="modal-frame-title"

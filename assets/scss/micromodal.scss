@@ -171,7 +171,7 @@
   }
   
   .micromodal-slide[aria-hidden="false"] .modal__overlay {
-    animation: mmfadeIn .5s cubic-bezier(0.0, 0.0, 0.2, 1);
+    animation: mmfadeIn .2s cubic-bezier(0.0, 0.0, 0.2, 1);
 
     @media only screen and (max-width: 700px) {
       animation: none;
@@ -179,7 +179,7 @@
   }
   
   .micromodal-slide[aria-hidden="false"] .modal__container {
-    animation: scaleForward 0.5s cubic-bezier(0, 0, .2, 1);
+    animation: scaleForward 0.2s cubic-bezier(0, 0, .2, 1);
 
     @media only screen and (max-width: 700px) {
       animation: mmSlideUp 0.2s cubic-bezier(0, 0, .2, 1);
@@ -187,11 +187,11 @@
   }
   
   .micromodal-slide[aria-hidden="true"] .modal__overlay {
-    animation: mmfadeOut .3s cubic-bezier(0.0, 0.0, 0.2, 1);
+    animation: mmfadeOut .1s cubic-bezier(0.0, 0.0, 0.2, 1);
   }
   
   .micromodal-slide[aria-hidden="true"] .modal__container {
-    animation: scaleBack .3s cubic-bezier(0, 0, .2, 1);
+    animation: scaleBack .1s cubic-bezier(0, 0, .2, 1);
 
     @media only screen and (max-width: 700px) {
       animation: mmSlideDown .1s cubic-bezier(0, 0, .2, 1);
