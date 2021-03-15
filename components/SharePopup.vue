@@ -23,7 +23,7 @@
           />
           <button
             type="button"
-            class="w-1/12 border rounded-r-md flex justify-center items-center bg-gray-200 text-gray-500 focus:outline-none"
+            class="w-1/12 rounded-r-md flex justify-center items-center bg-gray-200 text-gray-500 focus:outline-none hover:bg-gray-300 transition duration-100 ease-in"
             title="Copy Link"
           >
             <CopyIcon class="icon" />
