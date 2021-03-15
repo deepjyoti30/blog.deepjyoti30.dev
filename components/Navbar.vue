@@ -20,8 +20,9 @@
             width="30"
           />
         </div>
-        <div class="menu__container md:hidden block">
-          <MenuIcon />
+        <div class="menu__container md:hidden block" @click="toggleBar">
+          <XIcon v-if="expandedBar" />
+          <MenuIcon v-else />
         </div>
       </div>
       <div class="links__container items-center md:flex hidden">
@@ -40,32 +41,39 @@
           </button>
         </div>
       </div>
-      <div v-if="expandedBar" class="links__container expanded--content">
-        <div class="links">
-          <nuxt-link to="/">Posts</nuxt-link>
-          <a href="https://deepjyoti30.dev" rel="noopener noreferrer">About</a>
+      <transition name="navbar-expand">
+        <div
+          v-if="expandedBar"
+          class="links__container expanded--content w-full"
+        >
+          <div class="links">
+            <nuxt-link to="/">Posts</nuxt-link>
+            <a href="https://deepjyoti30.dev" rel="noopener noreferrer"
+              >About</a
+            >
+          </div>
+          <div class="separator h-5 w-0.5 mx-4 bg-customgreen"></div>
+          <div class="quicks flex items-center">
+            <button type="button" class="quick-btn" @click="toggleDarkMode">
+              <MoonIcon v-if="!isDark" size="1.1x" />
+              <SunIcon v-else class="sun--icon" size="1.1x" />
+            </button>
+            <button type="button" class="quick-btn">
+              <RssIcon size="1.1x" />
+            </button>
+          </div>
         </div>
-        <div class="separator h-5 w-0.5 mx-4 bg-customgreen"></div>
-        <div class="quicks flex items-center">
-          <button type="button" class="quick-btn" @click="toggleDarkMode">
-            <MoonIcon v-if="!isDark" size="1.1x" />
-            <SunIcon v-else class="sun--icon" size="1.1x" />
-          </button>
-          <button type="button" class="quick-btn">
-            <RssIcon size="1.1x" />
-          </button>
-        </div>
-      </div>
+      </transition>
     </div>
   </nav>
 </template>
 
 <script>
-import { MoonIcon, SunIcon, RssIcon, MenuIcon } from 'vue-feather-icons'
+import { MoonIcon, SunIcon, RssIcon, MenuIcon, XIcon } from 'vue-feather-icons'
 import { theme } from '~/mixins/theme'
 
 export default {
-  components: { MoonIcon, RssIcon, SunIcon, MenuIcon },
+  components: { MoonIcon, RssIcon, SunIcon, MenuIcon, XIcon },
   mixins: [theme],
   data() {
     return {
@@ -122,6 +130,9 @@ export default {
       // Else we need a fallback
       this.toggleTheme(this.isDeviceDarkTheme(), true)
     },
+    toggleBar: function () {
+      this.expandedBar = !this.expandedBar
+    },
   },
   mounted() {
     this.determineTheme()
@@ -164,7 +175,48 @@ export default {
           }
         }
       }
+
+      &.expanded--content {
+        height: 100vh;
+        z-index: 99;
+        position: relative;
+      }
     }
+  }
+
+  $md: 768px;
+
+  .navbar-expand-enter {
+    opacity: 0;
+
+    @media only screen and (max-width: $md) {
+      transform: translateY(-100vh);
+    }
+  }
+  .navbar-expand-enter-to {
+    opacity: 1;
+
+    @media only screen and (max-width: $md) {
+      transform: translateY(0);
+    }
+  }
+  .navbar-expand-leave {
+    opacity: 1;
+
+    @media only screen and (max-width: $md) {
+      transform: translateY(0);
+    }
+  }
+  .navbar-expand-leave-to {
+    opacity: 1;
+
+    @media only screen and (max-width: $md) {
+      transform: translateY(-100vh);
+    }
+  }
+  .navbar-expand-enter-active,
+  .navbar-expand-leave-active {
+    transition: opacity, transform 200ms ease;
   }
 }
 </style>
