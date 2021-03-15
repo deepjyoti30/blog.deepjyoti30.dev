@@ -3,7 +3,7 @@
     <div class="share--content">
       <Share />
     </div>
-    <div class="tag--details my-2 inline-flex flex-wrap">
+    <div class="tag--details mb-2 mt-4 inline-flex flex-wrap">
       <div
         v-for="(tag, id) in post.tags.tags_list"
         :key="id"

@@ -1,18 +1,20 @@
 <template>
-  <div class="share__container my-2">
-    <h5 class="text-lg font-medium dm-sans text-gray-600 dark:text-gray-300">
+  <div class="share__container my-4">
+    <h5
+      class="text-base font-semibold dm-sans text-gray-700 dark:text-gray-300"
+    >
       Share
     </h5>
     <div class="share--btns mt-4 flex">
-      <span class="share--btn">
+      <a href="" title="Share on Twitter" class="share--btn">
         <TwitterIcon class="icon" />
-      </span>
-      <span class="share--btn">
+      </a>
+      <a href="" title="Share on LinkedIn" class="share--btn">
         <LinkedinIcon class="icon" />
-      </span>
-      <span class="share--btn">
+      </a>
+      <button type="button" title="Share Post" class="share--btn">
         <ShareIcon class="icon" />
-      </span>
+      </button>
     </div>
   </div>
 </template>
@@ -35,7 +37,8 @@ export default {
     @apply text-gray-700;
 
     .share--btn {
-      @apply mx-4;
+      @apply mx-2;
+      @apply p-1 hover:bg-darkblue-300 rounded-md hover:text-darkblue transition duration-100 ease-in;
 
       &:first-child {
         @apply ml-0;
