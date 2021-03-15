@@ -60,11 +60,22 @@ export default {
       document.querySelector('body').classList.remove('dark')
       this.isDark = false
     },
+    toggleTheme: function (checkDark, opposite = false) {
+      /**
+       * Toggle the theme of the device based on the passed variable.
+       *
+       * Passed param should tell us what the theme should be set to.
+       */
+      // If opposite, alter the value
+      if (opposite) checkDark = !checkDark
+
+      checkDark ? this.disableDarkMode() : this.enableDarkMode()
+    },
     toggleDarkMode: function () {
       // Toggle the theme
       // NOTE: This method is called only when the user clicks on the theme button change
       // because this will save the theme to the storage.
-      this.isDark ? this.disableDarkMode() : this.enableDarkMode()
+      this.toggleTheme(this.isDark)
 
       this.setTheme(this.isDark ? 'dark' : 'light')
     },
@@ -82,7 +93,7 @@ export default {
        * And finally the fallback would be light.
        */
       if (this.isThemeSaved()) {
-        this.isDarkTheme() ? this.enableDarkMode() : this.disableDarkMode()
+        this.toggleTheme(this.isDarkTheme(), true)
         return
       }
 
