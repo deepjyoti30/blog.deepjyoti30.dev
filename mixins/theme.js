@@ -1,0 +1,37 @@
+export const theme = {
+    data() {
+        return {
+            themeKey: "blogTheme",
+            validValues: ["light", "dark"]
+        }
+    },
+    methods: {
+        getTheme: function () {
+            /**
+             * Get the theme based on the key. We will just try to fetch the
+             * theme from the localstorage. If it is not present, we will
+             * return null.
+             */
+            const value = localStorage.getItem(this.themeKey);
+
+            // If the value is valid, i:e either light or dark, otherwise return
+            // null.
+            return value.toLowerCase() in this.validValues ? value : null;
+        },
+        setTheme: function (newValue) {
+            /**
+             * Set the theme as passed by the user.
+             * 
+             * The theme has to be a valid value, else it will be rejected.
+             */
+            newValue = newValue.toLowerCase()
+            if (!(newValue in this.validValues)) {
+                throw `Value needs to be either of ${this.validValues}, got ${newValue}`;
+                return
+            }
+
+            // Else set the theme
+            localStorage.setItem(this.themeKey, newValue)
+        }
+    }
+}

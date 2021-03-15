@@ -62,6 +62,20 @@ export default {
       // Toggle the theme
       this.isDark ? this.disableDarkMode() : this.enableDarkMode()
     },
+    determineTheme: function () {
+      /**
+       * Determine which theme to set for the app.
+       *
+       * If the theme was previously set by the user, we will
+       * use that theme.
+       *
+       * If no theme was ever set by the user, we will check what
+       * the users system theme is and based on that we will set
+       * the theme to dark or light.
+       *
+       * And finally the fallback would be light.
+       */
+    },
   },
 }
 </script>
