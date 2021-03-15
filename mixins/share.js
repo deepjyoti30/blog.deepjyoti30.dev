@@ -5,11 +5,12 @@ export const share = {
         }
     },
     methods: {
-        buildShareUrl: function () {
+        buildShareUrl: function (slug) {
             /**
              * Build the share URL that can be shared with the users
              * when they click the share buttons.
              */
+            return `${this.selfBase}${slug}`
         }
     }
 }

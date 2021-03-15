@@ -31,6 +31,7 @@
 
 <script>
 import { TwitterIcon, LinkedinIcon, ShareIcon } from 'vue-feather-icons'
+import { share } from '~/mixins/share'
 
 export default {
   components: {
@@ -38,6 +39,7 @@ export default {
     LinkedinIcon,
     ShareIcon,
   },
+  mixins: [share],
   props: {
     post: {
       type: Object,
@@ -48,7 +50,6 @@ export default {
     return {
       linkedInBase: 'https://www.linkedin.com/sharing/share-offsite/',
       twitterBase: 'https://twitter.com/intent/tweet',
-      selfBase: 'https://blog.deepjyoti30.dev/',
       selfUrl: '',
       twitterUrl: '',
       linkedInUrl: '',
@@ -62,7 +63,7 @@ export default {
       /**
        * Build the URL that will be shared in all the sites
        */
-      this.selfUrl = `${this.selfBase}${this.post.slug}`
+      this.selfUrl = this.buildShareUrl(this.post.slug)
     },
     buildLinkedIn: function () {
       /**
