@@ -20,6 +20,12 @@ module.exports = {
                     300: '#BFEBF9',
                     500: '#62CDF0',
                 },
+                darklow: {
+                    DEFAULT: '#1A1A1A'
+                },
+                darkhigh: {
+                    DEFAULT: "#121212"
+                }
             },
         },
     },

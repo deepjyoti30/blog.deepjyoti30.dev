@@ -24,6 +24,8 @@
     overflow-y: auto;
     box-sizing: border-box;
 
+    @apply dark:bg-darkhigh;
+
     @media only screen and (max-width: 700px) {
         width: 100%;
         border-bottom-left-radius: 0;
@@ -42,6 +44,7 @@
 
     @apply border-b-2;
     @apply border-gray-200;
+    @apply dark:border-gray-700;
   }
   
   .modal__close {

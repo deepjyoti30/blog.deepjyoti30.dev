@@ -4,7 +4,7 @@
       <div id="message" class="mb-2">
         <h3
           id="modal-frame-title"
-          class="modal__title dm-sans mb-4 font-semibold text-xl"
+          class="modal__title dm-sans mb-4 font-semibold text-xl dark:text-darkblue-300"
         >
           {{ post.title }}
         </h3>
@@ -19,12 +19,12 @@
             ref="linkContent"
             readonly
             @click="selectText($event)"
-            class="select-all p-2 text-gray-700 flex-grow truncate border rounded-l-md focus:outline-none"
+            class="select-all p-2 text-gray-700 flex-grow truncate border dark:border-gray-700 rounded-l-md focus:outline-none dark:bg-darklow dark:text-gray-100"
             :value="getShareUrl"
           />
           <button
             type="button"
-            class="w-1/12 rounded-r-md flex justify-center items-center bg-gray-200 text-gray-500 focus:outline-none hover:bg-gray-300 transition duration-100 ease-in"
+            class="w-1/12 rounded-r-md flex justify-center items-center bg-gray-200 dark:bg-gray-800 text-gray-500 dark:text-gray-300 focus:outline-none hover:bg-gray-300 dark:hover:bg-gray-700 transition duration-100 ease-in"
             title="Copy Link"
             @click="copyLink"
           >
