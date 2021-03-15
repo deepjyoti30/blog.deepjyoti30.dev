@@ -30,8 +30,8 @@
           >
             <CopyIcon v-if="!isClicked" class="icon" />
             <span v-else>
-              <CheckCircleIcon v-if="copyStatus" />
-              <AlertCircleIcon v-else />
+              <CheckCircleIcon v-if="copyStatus" class="text-green-600" />
+              <AlertCircleIcon v-else class="text-red-600" />
             </span>
           </button>
         </div>
@@ -83,6 +83,10 @@ export default {
         this.$refs.linkContent
       )
       this.isClicked = true
+
+      setTimeout(() => {
+        this.isClicked = false
+      }, 5000)
     },
   },
   computed: {
