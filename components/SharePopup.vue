@@ -16,15 +16,17 @@
         <div class="copy--content flex flex-wrap rounded-md mt-6">
           <input
             type="url"
+            ref="linkContent"
             readonly
             @click="selectText($event)"
             class="select-all p-2 text-gray-700 flex-grow truncate border rounded-l-md focus:outline-none"
-            :value="buildShareUrl(post.slug)"
+            :value="getShareUrl"
           />
           <button
             type="button"
             class="w-1/12 rounded-r-md flex justify-center items-center bg-gray-200 text-gray-500 focus:outline-none hover:bg-gray-300 transition duration-100 ease-in"
             title="Copy Link"
+            @click="copyLink"
           >
             <CopyIcon class="icon" />
           </button>
@@ -51,6 +53,12 @@ export default {
       default: null,
     },
   },
+  data() {
+    return {
+      copyStatus: false,
+      shareUrl: '',
+    }
+  },
   methods: {
     selectText: function (el) {
       /**
@@ -59,6 +67,23 @@ export default {
        */
       el.currentTarget.select()
     },
+    copyLink: async function () {
+      /**
+       * Copy the link to the users clipboard.
+       */
+      this.copyStatus = await this.copyUrl(
+        this.shareUrl,
+        this.$refs.linkContent
+      )
+    },
+  },
+  computed: {
+    getShareUrl() {
+      return this.shareUrl
+    },
+  },
+  mounted() {
+    this.shareUrl = this.buildShareUrl(this.post.slug)
   },
 }
 </script>

@@ -16,15 +16,6 @@ export const share = {
             /**
              * Copy by creating a text box and selecting and copying
              */
-            // Create a text input and keep it hidden
-            const textInput = document.createElement('input')
-            textInput.value = this.selfUrl
-            // Hide it.
-            textInput.style.display = 'none'
-            document.body.appendChild(textInput)
-            textInput.focus()
-            textInput.select()
-
             // Select the element first
             el.select()
 
@@ -34,7 +25,6 @@ export const share = {
             } catch (err) {
                 console.log('Fallback failed as well :/', err)
             }
-            document.body.removeChild(textInput)
         },
         copyUrl: function (url, el) {
             /**
@@ -49,14 +39,11 @@ export const share = {
                 return this.copyOldSchool(el)
             }
 
-            navigator.clipboard.writeText(url).then(
-                () => {
-                    return true
-                },
-                function (err) {
-                    console.log('Could not copy text: ', err)
-                }
-            )
+            return navigator.clipboard.writeText(url).then(() => {
+                return true
+            }, () => {
+                return false
+            })
         },
         showNativeShare: async function (title, description, slug) {
             /**
