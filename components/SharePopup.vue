@@ -24,7 +24,7 @@
           />
           <button
             type="button"
-            class="w-1/12 rounded-r-md flex justify-center items-center bg-gray-200 dark:bg-gray-800 text-gray-500 dark:text-gray-300 focus:outline-none hover:bg-gray-300 dark:hover:bg-gray-700 transition duration-100 ease-in"
+            class="md:w-1/12 w-2/12 rounded-r-md flex justify-center items-center bg-gray-200 dark:bg-gray-800 text-gray-500 dark:text-gray-300 focus:outline-none hover:bg-gray-300 dark:hover:bg-gray-700 transition duration-100 ease-in"
             title="Copy Link"
             @click="copyLink"
           >
