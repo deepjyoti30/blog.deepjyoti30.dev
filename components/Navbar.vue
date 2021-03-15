@@ -98,7 +98,7 @@ export default {
       }
 
       // Else we need a fallback
-      console.log('Need a fallback')
+      this.toggleTheme(this.isDeviceDarkTheme(), true)
     },
   },
   mounted() {
