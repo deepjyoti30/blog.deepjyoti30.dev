@@ -1,5 +1,5 @@
 <template>
-  <div class="my-16">
+  <div class="md:my-16 my-10">
     <PostsContainer :posts="posts" no-heading />
   </div>
 </template>
