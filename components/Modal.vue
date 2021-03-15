@@ -71,7 +71,6 @@ export default {
        */
       MicroModal.show(this.getModalId, {
         disableFocus: true,
-        disableScroll: true,
         awaitCloseAnimation: true,
         awaitOpenAnimation: true,
       })

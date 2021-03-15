@@ -175,6 +175,7 @@ export default {
     .share--btn {
       @apply mx-3;
       @apply p-1 hover:bg-darkblue-300 rounded-md hover:text-darkblue transition duration-100 ease-in;
+      @apply focus:outline-none;
 
       &:first-child {
         @apply ml-0;
