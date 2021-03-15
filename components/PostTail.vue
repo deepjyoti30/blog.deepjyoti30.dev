@@ -1,7 +1,7 @@
 <template>
   <div class="post--tail__container my-5">
     <div class="share--content">
-      <Share />
+      <Share :post="post" />
     </div>
     <div class="tag--details mb-2 mt-4 inline-flex flex-wrap">
       <div
