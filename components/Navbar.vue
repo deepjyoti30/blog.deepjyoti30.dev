@@ -1,25 +1,30 @@
 <template>
   <nav class="navbar__container">
     <div
-      class="navbar flex justify-between py-6 dm-sans text-lg dark:text-white"
+      class="navbar md:flex md:justify-between md:items-center py-6 dm-sans text-lg dark:text-white"
     >
-      <div class="brand__container font-medium">
-        <img
-          v-if="!isDark"
-          src="~/assets/img/logo.png"
-          alt="Brand Logo"
-          height="30"
-          width="30"
-        />
-        <img
-          v-else
-          src="~/assets/img/logo_white.png"
-          alt="Brand Logo"
-          height="30"
-          width="30"
-        />
+      <div class="left--content md:block flex justify-between items-center">
+        <div class="brand__container font-medium">
+          <img
+            v-if="!isDark"
+            src="~/assets/img/logo.png"
+            alt="Brand Logo"
+            height="30"
+            width="30"
+          />
+          <img
+            v-else
+            src="~/assets/img/logo_white.png"
+            alt="Brand Logo"
+            height="30"
+            width="30"
+          />
+        </div>
+        <div class="menu__container md:hidden block">
+          <MenuIcon />
+        </div>
       </div>
-      <div class="links__container inline-flex items-center">
+      <div class="links__container items-center md:flex hidden">
         <div class="links">
           <nuxt-link to="/">Posts</nuxt-link>
           <a href="https://deepjyoti30.dev" rel="noopener noreferrer">About</a>
@@ -40,11 +45,11 @@
 </template>
 
 <script>
-import { MoonIcon, SunIcon, RssIcon } from 'vue-feather-icons'
+import { MoonIcon, SunIcon, RssIcon, MenuIcon } from 'vue-feather-icons'
 import { theme } from '~/mixins/theme'
 
 export default {
-  components: { MoonIcon, RssIcon, SunIcon },
+  components: { MoonIcon, RssIcon, SunIcon, MenuIcon },
   mixins: [theme],
   data() {
     return {
