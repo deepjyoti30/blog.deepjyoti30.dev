@@ -19,7 +19,7 @@ export const theme = {
 
             // If the value is valid, i:e either light or dark, otherwise return
             // null.
-            return value.toLowerCase() in this.validValues ? value : null;
+            return this.validValues.includes(value) ? value : null;
         },
         setTheme: function (newValue) {
             /**
@@ -27,8 +27,14 @@ export const theme = {
              * 
              * The theme has to be a valid value, else it will be rejected.
              */
+            if (!newValue) {
+                throw "Needs to be a valid value!"
+                return
+            }
+
+            // If value is valid
             newValue = newValue.toLowerCase()
-            if (!(newValue in this.validValues)) {
+            if (!this.validValues.includes(newValue)) {
                 throw `Value needs to be either of ${this.validValues}, got ${newValue}`;
                 return
             }
@@ -42,7 +48,17 @@ export const theme = {
              * 
              * We just need to check if the saved value is null or not.
              */
-            return !this.getTheme();
+            return this.getTheme();
+        },
+        isDarkTheme: function () {
+            /**
+             * Check if the current saved theme is the dark theme
+             * or not.
+             * 
+             * WARNING: This method is only to be called when the theme is
+             * valid.
+             */
+            return this.getTheme().toLowerCase() == "dark"
         }
     }
 }

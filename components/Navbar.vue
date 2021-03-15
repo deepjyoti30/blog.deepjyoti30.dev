@@ -62,7 +62,11 @@ export default {
     },
     toggleDarkMode: function () {
       // Toggle the theme
+      // NOTE: This method is called only when the user clicks on the theme button change
+      // because this will save the theme to the storage.
       this.isDark ? this.disableDarkMode() : this.enableDarkMode()
+
+      this.setTheme(this.isDark ? 'dark' : 'light')
     },
     determineTheme: function () {
       /**
@@ -77,7 +81,16 @@ export default {
        *
        * And finally the fallback would be light.
        */
+      if (this.isThemeSaved()) {
+        this.isDarkTheme() ? this.enableDarkMode() : this.disableDarkMode()
+        return
+      }
+
+      // Else we need a fallback
     },
+  },
+  mounted() {
+    this.determineTheme()
   },
 }
 </script>
