@@ -41,9 +41,11 @@
 
 <script>
 import { MoonIcon, SunIcon, RssIcon } from 'vue-feather-icons'
+import { theme } from '~/mixins/theme'
 
 export default {
   components: { MoonIcon, RssIcon, SunIcon },
+  mixins: [theme],
   data() {
     return {
       isDark: false,

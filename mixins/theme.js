@@ -14,6 +14,9 @@ export const theme = {
              */
             const value = localStorage.getItem(this.themeKey);
 
+            // Check if value is valid
+            if (!value) return value
+
             // If the value is valid, i:e either light or dark, otherwise return
             // null.
             return value.toLowerCase() in this.validValues ? value : null;
@@ -32,6 +35,14 @@ export const theme = {
 
             // Else set the theme
             localStorage.setItem(this.themeKey, newValue)
+        },
+        isThemeSaved: function () {
+            /**
+             * Check if a valid theme is saved in the localStorage or not.
+             * 
+             * We just need to check if the saved value is null or not.
+             */
+            return !this.getTheme();
         }
     }
 }
