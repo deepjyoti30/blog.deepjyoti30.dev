@@ -34,10 +34,10 @@ export default {
 <style lang="scss" scoped>
 .share__container {
   .share--btns {
-    @apply text-gray-700;
+    @apply text-gray-500 dark:text-gray-400;
 
     .share--btn {
-      @apply mx-2;
+      @apply mx-3;
       @apply p-1 hover:bg-darkblue-300 rounded-md hover:text-darkblue transition duration-100 ease-in;
 
       &:first-child {
