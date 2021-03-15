@@ -11,6 +11,7 @@
   "dependencies": {
     "@nuxtjs/pwa": "^3.3.5",
     "core-js": "^3.8.3",
+    "micromodal": "^0.4.6",
     "nuxt": "^2.14.12",
     "vue-feather-icons": "^5.1.0"
   },
