@@ -7,7 +7,7 @@
     >
       <ShareIcon size="1.2x" />
     </button>
-    <SharePopup ref="sharePopup" />
+    <SharePopup ref="sharePopup" :post="post" />
   </div>
 </template>
 
@@ -19,6 +19,12 @@ export default {
   components: {
     ShareIcon,
     SharePopup,
+  },
+  props: {
+    post: {
+      type: Object,
+      default: null,
+    },
   },
   methods: {
     showShareMenu: function () {

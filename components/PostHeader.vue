@@ -25,7 +25,7 @@
         </div>
       </div>
       <div class="share--details md:my-0 my-4">
-        <ShareMini />
+        <ShareMini :post="post" />
       </div>
     </div>
   </div>
