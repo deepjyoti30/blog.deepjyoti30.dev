@@ -8,21 +8,22 @@
         >
           {{ post.title }}
         </h3>
-        <h6 class="text-base text-gray-500 dark:text-gray-400">
+        <p class="text-base text-gray-500 dark:text-gray-400">
           {{ post.description }}
-        </h6>
+        </p>
       </div>
       <div class="copy__container">
         <div class="copy--content flex flex-wrap rounded-md mt-6">
           <input
             type="url"
             readonly
-            class="select-all py-2 px-3 text-gray-700 flex-grow truncate border rounded-l-md outline-none"
-            value="https://blog.deepjyoti30.dev/ytmdl-release-v2"
+            @click="selectText($event)"
+            class="select-all p-2 text-gray-700 flex-grow truncate border rounded-l-md focus:outline-none"
+            :value="buildShareUrl(post.slug)"
           />
           <button
             type="button"
-            class="w-1/12 border rounded-r-md flex justify-center items-center bg-gray-200 text-gray-500"
+            class="w-1/12 border rounded-r-md flex justify-center items-center bg-gray-200 text-gray-500 focus:outline-none"
             title="Copy Link"
           >
             <CopyIcon class="icon" />
@@ -36,18 +37,28 @@
 <script>
 import { CopyIcon } from 'vue-feather-icons'
 import Modal from '~/components/Modal.vue'
+import { share } from '~/mixins/share'
 
 export default {
   components: {
     Modal,
     CopyIcon,
   },
+  mixins: [share],
   props: {
     post: {
       type: Object,
       default: null,
     },
   },
-  methods: {},
+  methods: {
+    selectText: function (el) {
+      /**
+       * Select the text when the input container is clicked by
+       * the user.
+       */
+      el.currentTarget.select()
+    },
+  },
 }
 </script>
