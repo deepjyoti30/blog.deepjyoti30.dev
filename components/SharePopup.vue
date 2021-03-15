@@ -13,14 +13,20 @@
         </h6>
       </div>
       <div class="copy__container">
-        <div class="copy--content flex flex-wrap mt-6">
+        <div class="copy--content flex flex-wrap rounded-md mt-6">
           <input
             type="url"
-            class="p-2 flex-grow select-all truncate bg-transparent border rounded-l-md border focus:outline-none"
             readonly
+            class="select-all py-2 px-3 text-gray-700 flex-grow truncate border rounded-l-md outline-none"
             value="https://blog.deepjyoti30.dev/ytmdl-release-v2"
           />
-          <button type="button" class="w-1/12 border rounded-r-md"></button>
+          <button
+            type="button"
+            class="w-1/12 border rounded-r-md flex justify-center items-center bg-gray-200 text-gray-500"
+            title="Copy Link"
+          >
+            <CopyIcon class="icon" />
+          </button>
         </div>
       </div>
     </Modal>
@@ -28,11 +34,13 @@
 </template>
 
 <script>
+import { CopyIcon } from 'vue-feather-icons'
 import Modal from '~/components/Modal.vue'
 
 export default {
   components: {
     Modal,
+    CopyIcon,
   },
   props: {
     post: {
