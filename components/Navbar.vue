@@ -132,6 +132,10 @@ export default {
     },
     toggleBar: function () {
       this.expandedBar = !this.expandedBar
+
+      // Disable scroll on body
+      const overflow = this.expandedBar ? 'hidden' : 'visible'
+      document.querySelector('body').style.overflow = overflow
     },
   },
   mounted() {
@@ -179,7 +183,6 @@ export default {
       &.expanded--content {
         height: 100vh;
         z-index: 99;
-        position: relative;
       }
     }
   }
