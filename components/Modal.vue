@@ -31,7 +31,6 @@
 </template>
 
 <script>
-import MicroModal from 'micromodal'
 import { XIcon } from 'vue-feather-icons'
 
 export default {
@@ -69,7 +68,7 @@ export default {
       /**
        * Show the modal
        */
-      MicroModal.show(this.getModalId, {
+      this.$MicroModal.show(this.getModalId, {
         disableFocus: true,
         awaitCloseAnimation: true,
         awaitOpenAnimation: true,
@@ -79,7 +78,7 @@ export default {
       /**
        * Close the modal when the close button is clicked
        */
-      MicroModal.close(this.getModalId)
+      this.$MicroModal.close(this.getModalId)
     },
   },
 }

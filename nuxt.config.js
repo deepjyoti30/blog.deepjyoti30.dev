@@ -14,7 +14,9 @@ export default {
   css: ['~/assets/scss/app.scss', '~/assets/css/dracula.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: [
+    '~/plugins/micromodal.client.js'
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
