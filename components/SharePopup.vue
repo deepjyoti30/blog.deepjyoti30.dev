@@ -28,7 +28,11 @@
             title="Copy Link"
             @click="copyLink"
           >
-            <CopyIcon class="icon" />
+            <CopyIcon v-if="!isClicked" class="icon" />
+            <span v-else>
+              <CheckCircleIcon v-if="copyStatus" />
+              <AlertCircleIcon v-else />
+            </span>
           </button>
         </div>
       </div>
@@ -37,7 +41,7 @@
 </template>
 
 <script>
-import { CopyIcon } from 'vue-feather-icons'
+import { CopyIcon, CheckCircleIcon, AlertCircleIcon } from 'vue-feather-icons'
 import Modal from '~/components/Modal.vue'
 import { share } from '~/mixins/share'
 
@@ -45,6 +49,8 @@ export default {
   components: {
     Modal,
     CopyIcon,
+    CheckCircleIcon,
+    AlertCircleIcon,
   },
   mixins: [share],
   props: {
@@ -57,6 +63,7 @@ export default {
     return {
       copyStatus: false,
       shareUrl: '',
+      isClicked: false,
     }
   },
   methods: {
@@ -75,6 +82,7 @@ export default {
         this.shareUrl,
         this.$refs.linkContent
       )
+      this.isClicked = true
     },
   },
   computed: {
