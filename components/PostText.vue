@@ -125,10 +125,10 @@ export default {
     }
 
     a {
-      @apply text-indigo-500;
+      @apply text-blue-500;
       @apply border-b-2;
       @apply font-medium;
-      @apply border-indigo-500;
+      @apply border-blue-500;
       transition: 0.1s ease;
 
       &:hover {
