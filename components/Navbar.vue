@@ -40,6 +40,22 @@
           </button>
         </div>
       </div>
+      <div v-if="expandedBar" class="links__container expanded--content">
+        <div class="links">
+          <nuxt-link to="/">Posts</nuxt-link>
+          <a href="https://deepjyoti30.dev" rel="noopener noreferrer">About</a>
+        </div>
+        <div class="separator h-5 w-0.5 mx-4 bg-customgreen"></div>
+        <div class="quicks flex items-center">
+          <button type="button" class="quick-btn" @click="toggleDarkMode">
+            <MoonIcon v-if="!isDark" size="1.1x" />
+            <SunIcon v-else class="sun--icon" size="1.1x" />
+          </button>
+          <button type="button" class="quick-btn">
+            <RssIcon size="1.1x" />
+          </button>
+        </div>
+      </div>
     </div>
   </nav>
 </template>
@@ -54,6 +70,7 @@ export default {
   data() {
     return {
       isDark: false,
+      expandedBar: false,
     }
   },
   methods: {
