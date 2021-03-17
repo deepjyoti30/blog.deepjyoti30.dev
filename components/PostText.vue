@@ -90,8 +90,8 @@ export default {
       }
 
       a {
-        @apply text-yellow-700;
-        @apply border-yellow-700;
+        @apply text-yellow-700 dark:text-yellow-700;
+        @apply border-yellow-700 dark:border-yellow-700;
       }
     }
 
@@ -125,10 +125,10 @@ export default {
     }
 
     a {
-      @apply text-blue-500;
+      @apply text-blue-500 dark:text-blue-300;
       @apply border-b-2;
       @apply font-medium;
-      @apply border-blue-500;
+      @apply border-blue-500 dark:border-blue-300;
       transition: 0.1s ease;
 
       &:hover {
