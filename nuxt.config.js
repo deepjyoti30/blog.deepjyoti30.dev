@@ -53,22 +53,22 @@ export default {
       { hid: 'fb-url', property: "og:url", content: "https://blog.deepjyoti30.dev/" },
       {
         hid: 'og:description',
-        p: "og:description",
-        c: "Personal Blogging Site | I write about Backend, Frontend and Linux mostly"
+        property: "og:description",
+        content: "Personal Blogging Site | I write about Backend, Frontend and Linux mostly"
       },
       {
         hid: 'og:site_name',
-        p: 'og:site_name',
-        c: 'Blog | Deepjyoti Barman'
+        property: 'og:site_name',
+        content: 'Blog | Deepjyoti Barman'
       },
       {
         hid: 'fb-img',
-        p: "og:image",
-        c: "https://blog.deepjyoti30.dev/img/logo.png"
+        property: "og:image",
+        content: "https://blog.deepjyoti30.dev/img/logo.png"
       },
-      { hid: 'fb-img-type', p: "og:image:type", c: "image/png" },
-      { hid: 'fb-img-width', p: "og:image:width", c: "512" },
-      { hid: 'fb-img-height', p: "og:image:height", c: "512" }
+      { hid: 'fb-img-type', property: "og:image:type", content: "image/png" },
+      { hid: 'fb-img-width', property: "og:image:width", content: "512" },
+      { hid: 'fb-img-height', property: "og:image:height", content: "512" }
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
