@@ -5,7 +5,52 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      { hid: 'description', name: 'description', content: 'Personal Blogging Site | I write about Backend, Frontend and Linux mostly' },
+      { name: "robots", content: "index,follow" },
+      { name: "keywords", content: "deepjyoti30,blog,barman,deepjyoti,personal,blogging" },
+      // Itemprop
+      {
+        itemprop: "name",
+        content: "Blog | Deepjyoti Barman"
+      },
+      {
+        itemprop: "description",
+        content: "Personal Blogging Site | I write about Backend, Frontend and Linux mostly"
+      },
+      // Twitter stuff
+      { name: "twitter:card", content: "summary_large_image" },
+      {
+        name: "twitter:title",
+        content: "Blog | Deepjyoti Barman"
+      },
+      {
+        name: "twitter:description",
+        content: "Personal Blogging Site | I write about Backend, Frontend and Linux mostly"
+      },
+      { name: "twitter:url", content: "https://blog.deepjyoti30.dev/" },
+      { name: "twitter:creator", content: "@DeepBarman30" },
+      {
+        name: "twitter:image",
+        content: "https://blog.deepjyoti30.dev/img/logo.png"
+      },
+      // Facebook
+      { property: "og:type", content: "website" },
+      {
+        property: "og:title",
+        content: "Blog | Deepjyoti Barman"
+      },
+      { property: "og:url", content: "https://blog.deepjyoti30.dev/" },
+      {
+        p: "og:description",
+        c: "Personal Blogging Site | I write about Backend, Frontend and Linux mostly"
+      },
+      {
+        p: "og:image",
+        c: "https://blog.deepjyoti30.dev/img/logo.png"
+      },
+      { p: "og:image:type", c: "image/png" },
+      { p: "og:image:width", c: "512" },
+      { p: "og:image:height", c: "512" }
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
