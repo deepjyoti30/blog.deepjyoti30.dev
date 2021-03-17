@@ -18,7 +18,7 @@ export default {
         content: "Personal Blogging Site | I write about Backend, Frontend and Linux mostly"
       },
       // Twitter stuff
-      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:card", content: "summary" },
       {
         name: "twitter:title",
         content: "Blog | Deepjyoti Barman"
@@ -32,6 +32,10 @@ export default {
       {
         name: "twitter:image",
         content: "https://blog.deepjyoti30.dev/img/logo.png"
+      },
+      {
+        name: "twitter:site",
+        content: "@DeepBarman30"
       },
       // Facebook
       { property: "og:type", content: "website" },
