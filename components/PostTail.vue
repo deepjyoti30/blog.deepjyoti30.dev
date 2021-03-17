@@ -15,7 +15,7 @@
       </div>
     </div>
     <div class="subscribe my-12">
-      <Subscribe />
+      <Subscribe :post="post" />
     </div>
   </div>
 </template>

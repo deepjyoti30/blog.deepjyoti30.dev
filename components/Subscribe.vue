@@ -18,10 +18,16 @@
           class="flex-grow rounded-l p-2 focus:outline-none text-black"
           placeholder="awesomejohn@john.com"
           required
+          spellcheck="false"
+          v-model="emailEntered"
+          @keyup.enter="subscribeUser"
         />
         <button
           type="button"
-          class="w-2/6 text-darkblue bg-green-300 rounded-r p-2 focus:outline-none hover:bg-green-400 transition ease-in duration-100 font-medium"
+          title="Click to Subscribe"
+          class="w-2/6 text-darkblue bg-green-300 rounded-r p-2 focus:outline-none hover:bg-green-400 transition ease-in duration-100 font-medium disabled:opacity-80"
+          :disabled="!isVerified"
+          @click="subscribeUser"
         >
           Subscribe
         </button>
@@ -31,5 +37,55 @@
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      emailEntered: '',
+      forceDisable: false,
+      subscribeEndpoint: 'https://apis.deepjyoti30.dev/blog/subscribe',
+      ongoing: false,
+      userSubscribed: false,
+    }
+  },
+  props: {
+    post: {
+      type: Object,
+      default: null,
+    },
+  },
+  methods: {
+    subscribeUser: async function () {
+      /**
+       * Subscribe the user to the newsletter
+       */
+      this.forceDisable = true
+      this.ongoing = true
+      await fetch(this.subscribeEndpoint, {
+        method: 'POST',
+        body: JSON.stringify({
+          email: this.emailEntered,
+          subscribed_from: this.post ? this.post.post_id : 'index',
+        }),
+      })
+      this.ongoing = false
+      this.userSubscribed = true
+    },
+    validEmail: function () {
+      return /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
+        this.emailEntered
+      )
+    },
+  },
+  computed: {
+    isVerified() {
+      return this.validEmail() && !this.forceDisable
+    },
+    isOngoing() {
+      return this.ongoing
+    },
+    isSuccess() {
+      return this.userSubscribed
+    },
+  },
+}
 </script>
