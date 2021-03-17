@@ -36,7 +36,7 @@ export default {
       {
         hid: 'twitter-img',
         name: "twitter:image",
-        content: "https://blog.deepjyoti30.dev/img/logo.png"
+        content: "https://blog.deepjyoti30.dev/icon.png"
       },
       {
         hid: 'twitter-site',
@@ -64,7 +64,7 @@ export default {
       {
         hid: 'fb-img',
         property: "og:image",
-        content: "https://blog.deepjyoti30.dev/img/logo.png"
+        content: "https://blog.deepjyoti30.dev/icon.png"
       },
       { hid: 'fb-img-type', property: "og:image:type", content: "image/png" },
       { hid: 'fb-img-width', property: "og:image:width", content: "512" },

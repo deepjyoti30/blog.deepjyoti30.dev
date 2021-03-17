@@ -88,7 +88,7 @@ export default {
           content:
             this.post.cover_img != null
               ? this.post.cover_img
-              : 'https://blog.deepjyoti30.dev/img/logo.png',
+              : 'https://blog.deepjyoti30.dev/icon.png',
         },
         // Facebook
         { hid: 'og:type', property: 'og:type', content: 'website' },
