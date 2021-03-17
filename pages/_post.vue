@@ -29,80 +29,82 @@ export default {
       post: this.$route.params.parent,
     }
   },
-  head: {
-    title: `${this.post.title} | Deepjyoti Barman`,
-    meta: [
-      {
-        hid: 'description',
-        name: 'description',
-        content: this.post.description,
-      },
-      { name: 'robots', content: 'index,follow' },
-      {
-        name: 'keywords',
-        content: this.post.tags.tags_list.join(','),
-      },
-      // Itemprop
-      {
-        itemprop: 'name',
-        content: this.post.title,
-      },
-      {
-        itemprop: 'description',
-        content: this.post.description,
-      },
-      // Twitter stuff
-      {
-        name: 'twitter:card',
-        content:
-          this.post.cover_img != null ? 'summary_large_image' : 'summary',
-      },
-      {
-        name: 'twitter:title',
-        content: this.post.title,
-      },
-      {
-        name: 'twitter:description',
-        content: this.post.description,
-      },
-      {
-        name: 'twitter:url',
-        content: `https://blog.deepjyoti30.dev/${this.post.slug}`,
-      },
-      { name: 'twitter:creator', content: '@DeepBarman30' },
-      {
-        name: 'twitter:image',
-        content:
-          this.post.cover_img != null
-            ? this.post.cover_img
-            : 'https://blog.deepjyoti30.dev/img/logo.png',
-      },
-      {
-        name: 'twitter:creator',
-        content: '@DeepBarman30',
-      },
-      // Facebook
-      { property: 'og:type', content: 'website' },
-      {
-        property: 'og:title',
-        content: this.post.title,
-      },
-      {
-        property: 'og:url',
-        content: `https://blog.deepjyoti30.dev/${this.post.slug}`,
-      },
-      {
-        p: 'og:description',
-        c: this.post.description,
-      },
-      {
-        p: 'og:image',
-        c: this.post.cover_img,
-      },
-      { p: 'og:image:type', c: 'image/png' },
-      { p: 'og:image:width', c: '512' },
-      { p: 'og:image:height', c: '512' },
-    ],
+  head() {
+    return {
+      title: `${this.post.title} | Deepjyoti Barman`,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.post.description,
+        },
+        { name: 'robots', content: 'index,follow' },
+        {
+          name: 'keywords',
+          content: this.post.tags.tags_list.join(','),
+        },
+        // Itemprop
+        {
+          itemprop: 'name',
+          content: this.post.title,
+        },
+        {
+          itemprop: 'description',
+          content: this.post.description,
+        },
+        // Twitter stuff
+        {
+          name: 'twitter:card',
+          content:
+            this.post.cover_img != null ? 'summary_large_image' : 'summary',
+        },
+        {
+          name: 'twitter:title',
+          content: this.post.title,
+        },
+        {
+          name: 'twitter:description',
+          content: this.post.description,
+        },
+        {
+          name: 'twitter:url',
+          content: `https://blog.deepjyoti30.dev/${this.post.slug}`,
+        },
+        { name: 'twitter:creator', content: '@DeepBarman30' },
+        {
+          name: 'twitter:image',
+          content:
+            this.post.cover_img != null
+              ? this.post.cover_img
+              : 'https://blog.deepjyoti30.dev/img/logo.png',
+        },
+        {
+          name: 'twitter:creator',
+          content: '@DeepBarman30',
+        },
+        // Facebook
+        { property: 'og:type', content: 'website' },
+        {
+          property: 'og:title',
+          content: this.post.title,
+        },
+        {
+          property: 'og:url',
+          content: `https://blog.deepjyoti30.dev/${this.post.slug}`,
+        },
+        {
+          p: 'og:description',
+          c: this.post.description,
+        },
+        {
+          p: 'og:image',
+          c: this.post.cover_img,
+        },
+        { p: 'og:image:type', c: 'image/png' },
+        { p: 'og:image:width', c: '512' },
+        { p: 'og:image:height', c: '512' },
+      ],
+    }
   },
 }
 </script>
