@@ -29,7 +29,8 @@
           :disabled="!isVerified"
           @click="subscribeUser"
         >
-          Subscribe
+          <span v-if="!isOngoing">Subscribe</span>
+          <span v-else>Working..</span>
         </button>
       </div>
     </div>
@@ -69,6 +70,9 @@ export default {
       })
       this.ongoing = false
       this.userSubscribed = true
+
+      // Clear the email now
+      this.emailEntered = ''
     },
     validEmail: function () {
       return /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
