@@ -7,54 +7,68 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: 'Personal Blogging Site | I write about Backend, Frontend and Linux mostly' },
       { name: "robots", content: "index,follow" },
-      { name: "keywords", content: "deepjyoti30,blog,barman,deepjyoti,personal,blogging" },
+      { hid: 'keywords', name: "keywords", content: "deepjyoti30,blog,barman,deepjyoti,personal,blogging" },
       // Itemprop
       {
+        hid: 'itemprop-name',
         itemprop: "name",
         content: "Blog | Deepjyoti Barman"
       },
       {
+        hid: 'itemprop-description',
         itemprop: "description",
         content: "Personal Blogging Site | I write about Backend, Frontend and Linux mostly"
       },
       // Twitter stuff
-      { name: "twitter:card", content: "summary" },
+      { hid: 'twitter-card', name: "twitter:card", content: "summary" },
       {
+        hid: 'twitter-title',
         name: "twitter:title",
         content: "Blog | Deepjyoti Barman"
       },
       {
+        hid: 'twitter-desc',
         name: "twitter:description",
         content: "Personal Blogging Site | I write about Backend, Frontend and Linux mostly"
       },
-      { name: "twitter:url", content: "https://blog.deepjyoti30.dev/" },
-      { name: "twitter:creator", content: "@DeepBarman30" },
+      { hid: 'twitter-url', name: "twitter:url", content: "https://blog.deepjyoti30.dev/" },
+      { hid: 'twitter-creator', name: "twitter:creator", content: "@DeepBarman30" },
       {
+        hid: 'twitter-img',
         name: "twitter:image",
         content: "https://blog.deepjyoti30.dev/img/logo.png"
       },
       {
+        hid: 'twitter-site',
         name: "twitter:site",
         content: "@DeepBarman30"
       },
       // Facebook
-      { property: "og:type", content: "website" },
+      { hid: 'og:type', property: "og:type", content: "website" },
       {
+        hid: 'og:title',
         property: "og:title",
         content: "Blog | Deepjyoti Barman"
       },
-      { property: "og:url", content: "https://blog.deepjyoti30.dev/" },
+      { hid: 'fb-url', property: "og:url", content: "https://blog.deepjyoti30.dev/" },
       {
+        hid: 'og:description',
         p: "og:description",
         c: "Personal Blogging Site | I write about Backend, Frontend and Linux mostly"
       },
       {
+        hid: 'og:site_name',
+        p: 'og:site_name',
+        c: 'Blog | Deepjyoti Barman'
+      },
+      {
+        hid: 'fb-img',
         p: "og:image",
         c: "https://blog.deepjyoti30.dev/img/logo.png"
       },
-      { p: "og:image:type", c: "image/png" },
-      { p: "og:image:width", c: "512" },
-      { p: "og:image:height", c: "512" }
+      { hid: 'fb-img-type', p: "og:image:type", c: "image/png" },
+      { hid: 'fb-img-width', p: "og:image:width", c: "512" },
+      { hid: 'fb-img-height', p: "og:image:height", c: "512" }
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },

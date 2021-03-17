@@ -40,69 +40,86 @@ export default {
         },
         { name: 'robots', content: 'index,follow' },
         {
+          hid: 'keywords',
           name: 'keywords',
           content: this.post.tags.tags_list.join(','),
         },
         // Itemprop
         {
+          hid: 'itemprop-name',
           itemprop: 'name',
           content: this.post.title,
         },
         {
+          hid: 'itemprop-description',
           itemprop: 'description',
           content: this.post.description,
         },
         // Twitter stuff
         {
+          hid: 'twitter-card',
           name: 'twitter:card',
           content:
             this.post.cover_img != null ? 'summary_large_image' : 'summary',
         },
         {
+          hid: 'twitter-title',
           name: 'twitter:title',
           content: this.post.title,
         },
         {
+          hid: 'twitter-desc',
           name: 'twitter:description',
           content: this.post.description,
         },
         {
+          hid: 'twitter-url',
           name: 'twitter:url',
           content: `https://blog.deepjyoti30.dev/${this.post.slug}`,
         },
-        { name: 'twitter:creator', content: '@DeepBarman30' },
         {
+          hid: 'twitter-creator',
+          name: 'twitter:creator',
+          content: '@DeepBarman30',
+        },
+        {
+          hid: 'twitter-img',
           name: 'twitter:image',
           content:
             this.post.cover_img != null
               ? this.post.cover_img
               : 'https://blog.deepjyoti30.dev/img/logo.png',
         },
-        {
-          name: 'twitter:creator',
-          content: '@DeepBarman30',
-        },
         // Facebook
-        { property: 'og:type', content: 'website' },
+        { hid: 'og:type', property: 'og:type', content: 'website' },
         {
+          hid: 'og:title',
           property: 'og:title',
           content: this.post.title,
         },
         {
+          hid: 'fb-url',
           property: 'og:url',
           content: `https://blog.deepjyoti30.dev/${this.post.slug}`,
         },
         {
+          hid: 'og:description',
           p: 'og:description',
           c: this.post.description,
         },
         {
+          hid: 'og:site_name',
+          p: 'og:site_name',
+          c: 'Blog | Deepjyoti Barman',
+        },
+        {
+          hid: 'fb-img',
           p: 'og:image',
           c: this.post.cover_img,
         },
-        { p: 'og:image:type', c: 'image/png' },
-        { p: 'og:image:width', c: '512' },
-        { p: 'og:image:height', c: '512' },
+        { hid: 'fb-img-type', p: 'og:image:type', c: 'image/png' },
+        { hid: 'fb-img-width', p: 'og:image:width', c: '512' },
+        { hid: 'fb-img-height', p: 'og:image:height', c: '512' },
       ],
     }
   },
