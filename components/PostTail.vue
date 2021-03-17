@@ -3,7 +3,7 @@
     <div class="share--content">
       <Share :post="post" />
     </div>
-    <div class="tag--details mb-2 mt-4 inline-flex flex-wrap">
+    <div class="tag--details my-2 inline-flex flex-wrap">
       <div
         v-for="(tag, id) in post.tags.tags_list"
         :key="id"
@@ -14,14 +14,18 @@
         </nuxt-link>
       </div>
     </div>
+    <div class="subscribe my-12">
+      <Subscribe />
+    </div>
   </div>
 </template>
 
 <script>
 import Share from '~/components/Share.vue'
+import Subscribe from './Subscribe.vue'
 
 export default {
-  components: { Share },
+  components: { Share, Subscribe },
   props: {
     post: {
       type: Object,
