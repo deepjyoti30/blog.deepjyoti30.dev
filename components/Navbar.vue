@@ -44,7 +44,7 @@
       <transition name="navbar-expand">
         <div
           v-if="expandedBar"
-          class="links__container expanded--content w-full"
+          class="links__container expanded--content w-full flex flex-col flex-wrap justify-between"
         >
           <div class="links">
             <nuxt-link to="/">Posts</nuxt-link>
@@ -52,14 +52,13 @@
               >About</a
             >
           </div>
-          <div class="separator h-5 w-0.5 mx-4 bg-customgreen"></div>
-          <div class="quicks flex items-center">
+          <div class="quicks flex items-center mt-6 mb-10 justify-center">
             <button type="button" class="quick-btn" @click="toggleDarkMode">
-              <MoonIcon v-if="!isDark" size="1.1x" />
-              <SunIcon v-else class="sun--icon" size="1.1x" />
+              <MoonIcon v-if="!isDark" size="2x" />
+              <SunIcon v-else class="sun--icon" size="2x" />
             </button>
             <button type="button" class="quick-btn">
-              <RssIcon size="1.1x" />
+              <RssIcon size="2x" />
             </button>
           </div>
         </div>
@@ -181,8 +180,25 @@ export default {
       }
 
       &.expanded--content {
-        height: 100vh;
+        height: 90vh;
         z-index: 99;
+
+        @apply pt-10;
+        @apply text-center;
+
+        .full-clickable {
+          @apply mr-0;
+          @apply my-6;
+          @apply text-3xl;
+        }
+
+        .links {
+          a {
+            @extend .full-clickable;
+
+            display: block;
+          }
+        }
       }
     }
   }
@@ -193,7 +209,7 @@ export default {
     opacity: 0;
 
     @media only screen and (max-width: $md) {
-      transform: translateY(-100vh);
+      transform: translateY(-90vh);
     }
   }
   .navbar-expand-enter-to {
@@ -214,12 +230,12 @@ export default {
     opacity: 1;
 
     @media only screen and (max-width: $md) {
-      transform: translateY(-100vh);
+      transform: translateY(-90vh);
     }
   }
   .navbar-expand-enter-active,
   .navbar-expand-leave-active {
-    transition: opacity, transform 200ms ease;
+    transition: opacity, transform 200ms ease-in-out;
   }
 }
 </style>
