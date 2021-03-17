@@ -1,7 +1,7 @@
 <template>
   <div>
-    <Subscribe class="my-2" />
-    <PostsContainer class="md:my-12 my-10" :posts="posts" no-heading />
+    <Subscribe class="my-4" />
+    <PostsContainer class="my-10" :posts="posts" no-heading />
   </div>
 </template>
 
