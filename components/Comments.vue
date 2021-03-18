@@ -1,6 +1,10 @@
 <template>
   <div class="comments__container md:mt-24 mt-18 md:mb-18 mb-14">
-    <h4 class="text-xl dm-sans text-gray-700 font-semibold">Discussion</h4>
+    <h4
+      class="text-xl dm-sans text-gray-700 dark:text-gray-400 md:ml-0 ml-2 font-semibold"
+    >
+      Discussion
+    </h4>
     <div class="comments--content mt-8">
       <script
         src="https://utteranc.es/client.js"
