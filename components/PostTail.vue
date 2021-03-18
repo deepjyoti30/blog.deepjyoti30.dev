@@ -17,15 +17,17 @@
     <div class="subscribe my-12">
       <Subscribe :post="post" />
     </div>
+    <Comments />
   </div>
 </template>
 
 <script>
 import Share from '~/components/Share.vue'
 import Subscribe from './Subscribe.vue'
+import Comments from './Comments.vue'
 
 export default {
-  components: { Share, Subscribe },
+  components: { Share, Subscribe, Comments },
   props: {
     post: {
       type: Object,
