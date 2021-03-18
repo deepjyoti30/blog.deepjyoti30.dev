@@ -81,13 +81,27 @@ export default {
     }
   },
   methods: {
+    changeUtteranceTheme: function () {
+      const message = {
+        type: 'set-theme',
+        theme: this.isDark ? 'github-dark' : 'github-light',
+      }
+      var utterances = document.querySelector('iframe')
+      utterances.contentWindow.postMessage(message, 'https://utteranc.es')
+    },
     enableDarkMode: function () {
       document.querySelector('body').classList.add('dark')
       this.isDark = true
+
+      // Change utterance
+      this.changeUtteranceTheme()
     },
     disableDarkMode: function () {
       document.querySelector('body').classList.remove('dark')
       this.isDark = false
+
+      // Change utterance
+      this.changeUtteranceTheme()
     },
     toggleTheme: function (checkDark, opposite = false) {
       /**

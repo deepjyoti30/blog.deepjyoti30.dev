@@ -10,7 +10,7 @@
         src="https://utteranc.es/client.js"
         repo="deepjyoti30/blog-comments"
         issue-term="pathname"
-        theme="preferred-color-scheme"
+        theme="github-light"
         crossorigin="anonymous"
         async
       ></script>
@@ -21,6 +21,3 @@
 <script>
 export default {}
 </script>
-
-<style lang="scss" scoped>
-</style>
