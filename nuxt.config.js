@@ -131,13 +131,19 @@ export default {
             title: post.title,
             link: url,
             description: post.description,
-            pubDate: new Date(post.updated_at),
+            date: new Date(post.updated_at),
             guid: url,
-            content: post.content
+            content: post.content,
+            author: {
+              name: "Deepjyoti Barman",
+              email: "hello@deepjyoti30.dev",
+              link: "https://deepjyoti30.dev"
+            },
+            image: post.cover_img
           })
         })
       },
-      cacheTime: 1000 * 60 * 15,
+      cacheTime: 0,//1000 * 60 * 15,
       type: 'rss2',
     }
   ],

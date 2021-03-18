@@ -36,9 +36,9 @@
             <MoonIcon v-if="!isDark" size="1.1x" />
             <SunIcon v-else class="sun--icon" size="1.1x" />
           </button>
-          <button type="button" class="quick-btn">
+          <a href="/feed.xml" type="button" class="quick-btn">
             <RssIcon size="1.1x" />
-          </button>
+          </a>
         </div>
       </div>
       <transition name="navbar-expand">
@@ -57,9 +57,9 @@
               <MoonIcon v-if="!isDark" size="2x" />
               <SunIcon v-else class="sun--icon" size="2x" />
             </button>
-            <button type="button" class="quick-btn">
+            <a href="/feed.xml" type="button" class="quick-btn">
               <RssIcon size="2x" />
-            </button>
+            </a>
           </div>
         </div>
       </transition>
