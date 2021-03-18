@@ -86,6 +86,7 @@ export default {
   buildModules: [
     '@nuxtjs/tailwindcss',
     '@nuxtjs/style-resources',
+    '@nuxtjs/google-analytics'
   ],
 
   styleResources: {
@@ -141,6 +142,11 @@ export default {
     }
   ],
 
+
+  // Google Analytics
+  googleAnalytics: {
+    id: 'G-WQ2B2XX8DG'
+  },
 
   pwa: {
     manifest: {
