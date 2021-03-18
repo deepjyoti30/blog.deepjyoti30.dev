@@ -6,6 +6,8 @@
 
 <script>
 import PostContent from '~/components/PostContent.vue'
+import { image } from '~/mixins/image'
+
 export default {
   components: { PostContent },
   async asyncData({ params }) {
@@ -24,6 +26,7 @@ export default {
 
     return { post: response[0] }
   },
+  mixins: [image],
   data() {
     return {
       post: this.$route.params.parent,
@@ -87,7 +90,7 @@ export default {
           name: 'twitter:image',
           content:
             this.post.cover_img != null
-              ? this.post.cover_img
+              ? this.getImgUrl(this.post.cover_img, 2048)
               : 'https://blog.deepjyoti30.dev/icon.png',
         },
         // Facebook
@@ -115,7 +118,7 @@ export default {
         {
           hid: 'fb-img',
           property: 'og:image',
-          content: this.post.cover_img,
+          content: this.getImgUrl(this.post.cover_img, 512),
         },
         { hid: 'fb-img-type', property: 'og:image:type', content: 'image/png' },
         { hid: 'fb-img-width', property: 'og:image:width', content: '512' },
