@@ -113,10 +113,13 @@ export default {
           title: "Blog | Deepjyoti Barman",
           link: "https://blog.deepjyoti30.dev",
           description: "Personal Blogging Site | I write about Backend, Frontend and Linux mostly",
-          image: {
-            url: "https://blog.deepjyoti30.dev/img/icon.png",
-            title: "Blog | Deepjyoti Barman",
-            link: "https://blog.deepjyoti30.dev/feed"
+          image: "https://blog.deepjyoti30.dev/icon.png",
+          favicon: "https://blog.deepjyoti30.dev/favicon.ico",
+          language: "en",
+          author: {
+            name: "Deepjyoti Barman",
+            email: "hello@deepjyoti30.dev",
+            link: "https://deepjyoti30.dev"
           }
         }
 
@@ -129,7 +132,8 @@ export default {
             link: url,
             description: post.description,
             pubDate: new Date(post.updated_at),
-            guid: url
+            guid: url,
+            content: post.content
           })
         })
       },
