@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -117,6 +119,19 @@ export default {
             link: "https://blog.deepjyoti30.dev/feed"
           }
         }
+
+        // Fetch the posts from the API and update the feed
+        const posts = await (axios.get('https://apis.deepjyoti30.dev/blog/posts'))
+        posts.data.forEach(post => {
+          let url = `https://blog.deepjyoti30.dev/${post.slug}`
+          feed.addItem({
+            title: post.title,
+            link: url,
+            description: post.description,
+            pubDate: new Date(post.updated_at),
+            guid: url
+          })
+        })
       },
       cacheTime: 1000 * 60 * 15,
       type: 'rss2',
