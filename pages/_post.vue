@@ -118,7 +118,10 @@ export default {
         {
           hid: 'fb-img',
           property: 'og:image',
-          content: this.getImgUrl(this.post.cover_img, 512),
+          content:
+            this.post.cover_img != null
+              ? this.getImgUrl(this.post.cover_img, 512)
+              : 'https://blog.deepjyoti30.dev/icon.png',
         },
         { hid: 'fb-img-type', property: 'og:image:type', content: 'image/png' },
         { hid: 'fb-img-width', property: 'og:image:width', content: '512' },
