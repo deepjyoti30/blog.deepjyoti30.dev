@@ -5,6 +5,8 @@
 </template>
 
 <script>
+import { image } from '~/mixins/image'
+
 export default {
   props: {
     post: {
@@ -12,10 +14,10 @@ export default {
       default: null,
     },
   },
+  mixins: [image],
   computed: {
     getCover() {
-      const imgPrefix = `https://res.cloudinary.com/deepjyoti30/image/fetch/f_auto,q_50,w_1390/`
-      return imgPrefix + this.post.cover_img
+      return this.getImgUrl(this.post.cover_img, 1390)
     },
   },
 }
