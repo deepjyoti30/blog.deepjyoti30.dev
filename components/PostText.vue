@@ -16,7 +16,7 @@ export default {
 <style lang="scss" scoped>
 .post--text__container {
   @apply mt-5 mb-10;
-  @apply text-lg;
+  @apply md:text-lg;
   @apply text-gray-700 dark:text-gray-400;
 
   ::v-deep h1 {
