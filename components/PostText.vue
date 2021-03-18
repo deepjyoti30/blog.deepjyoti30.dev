@@ -15,7 +15,7 @@ export default {
 
 <style lang="scss" scoped>
 .post--text__container {
-  @apply my-10;
+  @apply mt-5 mb-10;
   @apply text-lg;
   @apply text-gray-700 dark:text-gray-400;
 
@@ -64,6 +64,7 @@ export default {
         @apply text-base;
         @apply dark:text-gray-700;
         padding: 1px 3px;
+        overflow-wrap: break-word;
       }
     }
 

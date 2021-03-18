@@ -1,7 +1,7 @@
 <template>
   <div class="post__container md:my-16 my-6">
     <PostHeader :post="post" />
-    <Cover :post="post" />
+    <Cover v-if="post.cover_img" :post="post" />
     <PostText :content="post.content" />
     <PostTail :post="post" />
     <div v-if="isRelatedLoaded" class="related--wrapper mt-8">
