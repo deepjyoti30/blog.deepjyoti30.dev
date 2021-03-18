@@ -99,6 +99,28 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    '@nuxtjs/feed'
+  ],
+
+  // NuxtJS Feed
+  feed: [
+    {
+      path: '/feed',
+      async create(feed) {
+        feed.options = {
+          title: "Blog | Deepjyoti Barman",
+          link: "https://blog.deepjyoti30.dev",
+          description: "Personal Blogging Site | I write about Backend, Frontend and Linux mostly",
+          image: {
+            url: "https://blog.deepjyoti30.dev/img/icon.png",
+            title: "Blog | Deepjyoti Barman",
+            link: "https://blog.deepjyoti30.dev/feed"
+          }
+        }
+      },
+      cacheTime: 1000 * 60 * 15,
+      type: 'rss2',
+    }
   ],
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa

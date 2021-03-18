@@ -9,6 +9,7 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@nuxtjs/feed": "^2.0.0",
     "@nuxtjs/pwa": "^3.3.5",
     "core-js": "^3.8.3",
     "micromodal": "^0.4.6",
