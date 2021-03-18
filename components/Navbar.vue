@@ -86,8 +86,28 @@ export default {
         type: 'set-theme',
         theme: this.isDark ? 'github-dark' : 'github-light',
       }
+
       var utterances = document.querySelector('iframe')
+
+      // If utterance has not loaded yet
+      if (utterances == null) {
+        this.waitForUtteranceToLoad()
+        return
+      }
+
+      // Else change theme
       utterances.contentWindow.postMessage(message, 'https://utteranc.es')
+    },
+    waitForUtteranceToLoad: function () {
+      // wait for utterances to load and send it's first message.
+      addEventListener('message', (event) => {
+        if (event.origin !== 'https://utteranc.es') {
+          return
+        }
+
+        // Finally update the theme
+        this.changeUtteranceTheme()
+      })
     },
     enableDarkMode: function () {
       document.querySelector('body').classList.add('dark')
