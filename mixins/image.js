@@ -12,7 +12,7 @@ export const image = {
              * We will see if the height and width is passed and
              * based on that generate the URL.
              */
-            const imgUrl = this.imgPrefix + `,w_${width}`
+            let imgUrl = this.imgPrefix + `,w_${width}`
 
             if (height) imgUrl += `,h_${height}`
 
