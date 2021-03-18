@@ -1,9 +1,7 @@
 <template>
-  <div class="comments__container my-20">
-    <h3 class="text-3xl dm-sans font-medium border-b-2 border-gray-700">
-      Comments
-    </h3>
-    <div class="comments--content mt-4">
+  <div class="comments__container md:mt-24 mt-18 md:mb-18 mb-14">
+    <h4 class="text-xl dm-sans text-gray-700 font-semibold">Discussion</h4>
+    <div class="comments--content mt-8">
       <script
         src="https://utteranc.es/client.js"
         repo="deepjyoti30/blog-comments"
@@ -21,7 +19,4 @@ export default {}
 </script>
 
 <style lang="scss" scoped>
-.utterances-frame {
-  padding: 0;
-}
 </style>

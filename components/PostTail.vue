@@ -3,6 +3,10 @@
     <div class="share--content">
       <Share :post="post" />
     </div>
+    <div class="subscribe my-12">
+      <Subscribe :post="post" />
+    </div>
+    <Comments />
     <div class="tag--details my-2 inline-flex flex-wrap">
       <div
         v-for="(tag, id) in post.tags.tags_list"
@@ -14,10 +18,6 @@
         </nuxt-link>
       </div>
     </div>
-    <div class="subscribe my-12">
-      <Subscribe :post="post" />
-    </div>
-    <Comments />
   </div>
 </template>
 
