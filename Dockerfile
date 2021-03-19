@@ -10,12 +10,12 @@ RUN npm install pm2 -g
 COPY ./ecosystem.config.js /app
 
 # Expose PORT
-EXPOSE 8083
+EXPOSE 8081
 
 # set app serving to permissive / assigned
 ENV NUXT_HOST=0.0.0.0
 # set app port
-ENV NUXT_PORT=8083
+ENV NUXT_PORT=8081
 
 # Start the app
 CMD ["pm2", "start"]
