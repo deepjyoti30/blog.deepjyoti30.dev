@@ -3,19 +3,17 @@ FROM node:11.13.0-alpine
 # Copy the distributable directory
 COPY ./.nuxt/ /app/.nuxt
 
-# Install pm2
-RUN npm install pm2 -g
-
-# Copy the ecosystem file to root
-COPY ./ecosystem.config.js /app
+# Install dependencies
+RUN npm install i
 
 # Expose PORT
 EXPOSE 8081
 
 # set app serving to permissive / assigned
 ENV NUXT_HOST=0.0.0.0
+
 # set app port
 ENV NUXT_PORT=8081
 
 # Start the app
-CMD ["pm2", "start"]
+CMD ["npm", "run", "start"]
