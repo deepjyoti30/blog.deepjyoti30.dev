@@ -28,7 +28,15 @@
       <div class="links__container items-center md:flex hidden">
         <div class="links">
           <nuxt-link to="/">Posts</nuxt-link>
-          <a href="https://deepjyoti30.dev" rel="noopener noreferrer">About</a>
+          <a
+            href="https://deepjyoti30.dev"
+            rel="noopener noreferrer"
+            class="inline-flex items-center"
+            >About
+            <span>
+              <ExternalLinkIcon size="0.8x" class="ml-2" />
+            </span>
+          </a>
         </div>
         <div class="separator h-5 w-0.5 mx-4 bg-customgreen"></div>
         <div class="quicks flex items-center">
@@ -48,9 +56,18 @@
         >
           <div class="links">
             <nuxt-link to="/">Posts</nuxt-link>
-            <a href="https://deepjyoti30.dev" rel="noopener noreferrer"
-              >About</a
+            <a
+              href="https://deepjyoti30.dev"
+              rel="noopener noreferrer"
+              class=""
             >
+              <span class="wrapper inline-flex items-center">
+                <span>About</span>
+                <span>
+                  <ExternalLinkIcon size="0.8x" class="ml-2" />
+                </span>
+              </span>
+            </a>
           </div>
           <div class="quicks flex items-center mt-6 mb-10 justify-center">
             <button type="button" class="quick-btn" @click="toggleDarkMode">
@@ -68,11 +85,18 @@
 </template>
 
 <script>
-import { MoonIcon, SunIcon, RssIcon, MenuIcon, XIcon } from 'vue-feather-icons'
+import {
+  MoonIcon,
+  SunIcon,
+  RssIcon,
+  MenuIcon,
+  XIcon,
+  ExternalLinkIcon,
+} from 'vue-feather-icons'
 import { theme } from '~/mixins/theme'
 
 export default {
-  components: { MoonIcon, RssIcon, SunIcon, MenuIcon, XIcon },
+  components: { MoonIcon, RssIcon, SunIcon, MenuIcon, XIcon, ExternalLinkIcon },
   mixins: [theme],
   data() {
     return {
