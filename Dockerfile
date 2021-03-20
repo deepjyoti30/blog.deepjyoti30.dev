@@ -1,21 +1,34 @@
-FROM node:11.13.0-alpine
+FROM node:12.21.0-alpine3.10
 
-# Copy the distributable directory
-COPY ./.nuxt/ /app/.nuxt
+# Copy the src
+COPY . /app
 
-# Install pm2
-RUN npm install pm2 -g
+# Set the workdir to app
+WORKDIR /app
 
-# Copy the ecosystem file to root
-COPY ./ecosystem.config.js /app
+# Install make dependencies
+RUN apk add --no-cache --virtual .gyp \
+    python \
+    make \
+    g++
+
+# Install dependencies
+RUN npm install
+
+# Now build the app
+RUN npm run build
+
+# Remove make dependencies
+RUN apk del .gyp
 
 # Expose PORT
 EXPOSE 8081
 
 # set app serving to permissive / assigned
 ENV NUXT_HOST=0.0.0.0
+
 # set app port
 ENV NUXT_PORT=8081
 
 # Start the app
-CMD ["pm2", "start"]
+CMD ["npm", "run", "start"]
