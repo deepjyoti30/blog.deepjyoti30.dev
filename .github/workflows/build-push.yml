@@ -3,7 +3,7 @@ name: Build app and deploy docker
 on:
   push:
     branches:
-      - "production"
+      - "test-cd"
 
 jobs:
   build-webapp:
