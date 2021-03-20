@@ -1,8 +1,13 @@
-# Blog V2
+<p align="center">
+<img src=".github/blog.png" alt="Blog" width="100%">
+</p>
+<br>
+
+## Blog V2
 
 V2 of my personal blog. This version is built on NuxtJS in order to leverage Server Side Rendering to improve SEO and performance. You can check the site [here](https://blog.deepjyoti30.dev)
 
-## Deploy locally
+### Deploy locally
 
 Just in case, you want to try the app locally, you can pull the latest image and deploy with the following command:
 
@@ -12,7 +17,7 @@ docker run -d -p 8080:8080 ghcr.io/deepjyoti30/blog-web:latest
 
 The latest image is built everytime a merge is done in the production branch. If you want to experiment with the bleeding edge and get new features, try out [setup](#setup)
 
-## Setup
+### Setup
 
 In order to run the project locally, you need to clone the repo and run:
 
