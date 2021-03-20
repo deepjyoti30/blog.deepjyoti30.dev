@@ -4,7 +4,7 @@ FROM node:11.13.0-alpine
 COPY ./.nuxt/ /app/.nuxt
 
 # Install dependencies
-RUN npm install i
+RUN npm install
 
 # Expose PORT
 EXPOSE 8081
