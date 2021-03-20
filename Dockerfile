@@ -3,6 +3,9 @@ FROM node:11.13.0-alpine
 # Copy the distributable directory
 COPY ./.nuxt/ /app/.nuxt
 
+# Copy the package json
+COPY ./package.json /app/package.json
+
 # Install dependencies
 RUN npm install
 
