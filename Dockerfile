@@ -3,11 +3,20 @@ FROM node:11.13.0-alpine
 # Copy the distributable directory
 COPY ./.nuxt/ /app/.nuxt
 
+# Install make dependencies
+RUN apk add --no-cache --virtual .gyp \
+    python \
+    make \
+    g++
+
 # Copy the package json
 COPY ./package.json /package.json
 
 # Install dependencies
 RUN npm install
+
+# Remove make dependencies
+RUN apk del .gyp
 
 # Expose PORT
 EXPOSE 8081
