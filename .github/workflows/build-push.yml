@@ -7,7 +7,6 @@ on:
 
 jobs:
   push-to-docker:
-    needs: build-webapp
     runs-on: ubuntu-latest
     steps:
       # Checkout the repo in order to fetch the latest content
