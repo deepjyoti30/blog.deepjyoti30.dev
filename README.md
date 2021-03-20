@@ -29,5 +29,5 @@ If you want to build and serve, use the following:
 
 
 ```console
-npm run build && npm run serve
+npm run build && npm run start
 ```
