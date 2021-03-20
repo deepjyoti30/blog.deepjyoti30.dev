@@ -1,10 +1,25 @@
-FROM node:11.13.0-alpine
+FROM node:12.21.0-alpine3.10
 
-# Copy the distributable directory
-COPY ./.nuxt/ /app/.nuxt
+# Copy the src
+COPY . /app
+
+# Set the workdir to app
+WORKDIR /app
+
+# Install make dependencies
+RUN apk add --no-cache --virtual .gyp \
+    python \
+    make \
+    g++
 
 # Install dependencies
 RUN npm install
+
+# Now build the app
+RUN npm run build
+
+# Remove make dependencies
+RUN apk del .gyp
 
 # Expose PORT
 EXPOSE 8081
