@@ -112,7 +112,11 @@ export default {
        * Show the share popup when the button is clicked.
        */
       if (this.isNativePresent())
-        return this.showNativeShare(post.title, post.description, post.slug)
+        return this.showNativeShare(
+          this.post.title,
+          this.post.description,
+          this.post.slug
+        )
       this.$refs.sharePopup.$refs.modal.showModal()
     },
   },
