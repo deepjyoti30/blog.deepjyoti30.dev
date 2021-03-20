@@ -4,7 +4,7 @@ FROM node:11.13.0-alpine
 COPY ./.nuxt/ /app/.nuxt
 
 # Copy the package json
-COPY ./package.json /app/package.json
+COPY ./package.json /package.json
 
 # Install dependencies
 RUN npm install
@@ -17,6 +17,9 @@ ENV NUXT_HOST=0.0.0.0
 
 # set app port
 ENV NUXT_PORT=8081
+
+# Set the workdir to app
+WORKDIR /app
 
 # Start the app
 CMD ["npm", "run", "start"]
