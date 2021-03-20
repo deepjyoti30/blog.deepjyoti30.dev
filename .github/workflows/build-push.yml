@@ -6,27 +6,6 @@ on:
       - "test-cd"
 
 jobs:
-  build-webapp:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
-      # Build the app using nodejs
-      - name: Use node js 15
-        uses: actions/setup-node@v2
-        with:
-          node-version: '15'
-      - name: Install dependencies
-        run: npm install
-      # Build the app
-      - name: Build app
-        run: npm run build
-      # Upload the .nuxt directory
-      - uses: actions/upload-artifact@master
-        with:
-          name: Webapp artifacts
-          path: .nuxt/
-
   push-to-docker:
     needs: build-webapp
     runs-on: ubuntu-latest
@@ -34,11 +13,6 @@ jobs:
       # Checkout the repo in order to fetch the latest content
       - name: Checkout repo
         uses: actions/checkout@v2
-      - name: Download built artifact
-        uses: actions/download-artifact@master
-        with:
-          name: Webapp artifacts
-          path: ./.nuxt/
       # Login to ghcr
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v1 

@@ -1,7 +1,10 @@
 FROM node:11.13.0-alpine
 
-# Copy the distributable directory
-COPY ./.nuxt/ /app/.nuxt
+# Copy the src
+COPY . /app
+
+# Set the workdir to app
+WORKDIR /app
 
 # Install make dependencies
 RUN apk add --no-cache --virtual .gyp \
@@ -9,14 +12,11 @@ RUN apk add --no-cache --virtual .gyp \
     make \
     g++
 
-# Copy the package json
-COPY ./package.json /package.json
-
-# Copy the package json to app as well
-COPY ./package.json /app/package.json
-
 # Install dependencies
 RUN npm install
+
+# Now build the app
+RUN npm run build
 
 # Remove make dependencies
 RUN apk del .gyp
@@ -29,9 +29,6 @@ ENV NUXT_HOST=0.0.0.0
 
 # set app port
 ENV NUXT_PORT=8081
-
-# Set the workdir to app
-WORKDIR /app
 
 # Start the app
 CMD ["npm", "run", "start"]
