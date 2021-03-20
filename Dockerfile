@@ -12,6 +12,9 @@ RUN apk add --no-cache --virtual .gyp \
 # Copy the package json
 COPY ./package.json /package.json
 
+# Copy the package json to app as well
+COPY ./package.json /app/package.json
+
 # Install dependencies
 RUN npm install
 
