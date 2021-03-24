@@ -1,4 +1,4 @@
-FROM node:12.21.0-alpine3.10
+FROM node:15.12.0-alpine3.10
 
 # Copy the src
 COPY . /app

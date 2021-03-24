@@ -4,7 +4,7 @@
       class="navbar md:flex md:justify-between md:items-center py-6 dm-sans text-lg dark:text-white"
     >
       <div class="left--content md:block flex justify-between items-center">
-        <div class="brand__container font-medium">
+        <nuxt-link to="/" class="brand__container font-medium">
           <img
             v-if="!isDark"
             src="~/assets/img/logo.png"
@@ -19,7 +19,7 @@
             height="30"
             width="30"
           />
-        </div>
+        </nuxt-link>
         <div class="menu__container md:hidden block" @click="toggleBar">
           <XIcon v-if="expandedBar" />
           <MenuIcon v-else />
