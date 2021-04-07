@@ -118,7 +118,15 @@ export default {
         }
 
         // Fetch the posts from the API and update the feed
-        const posts = await (axios.get('https://apis.deepjyoti30.dev/blog/posts'))
+        const posts = await (axios({
+          method: 'GET',
+          url: 'https://apis.deepjyoti30.dev/blog/posts',
+          validateStatus: () => true
+        }))
+
+        // Check if everything is cool, else exit
+        if (posts.status != 200) return
+
         posts.data.forEach(post => {
           let url = `https://blog.deepjyoti30.dev/${post.slug}`
           feed.addItem({
