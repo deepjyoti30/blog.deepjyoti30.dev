@@ -20,12 +20,15 @@
     >
       {{ post.title }}
     </h1>
-    <div class="extended--details mt-2 text-gray-700 dark:text-gray-400">
-      <span class="time">
-        {{ post.read_time.text }}
+    <div
+      class="extended--details mt-2 text-gray-700 dark:text-gray-400 flex items-center"
+    >
+      <span class="time inline-flex items-center">
+        <ClockIcon size="1x" class="mr-2 fill-current clock--icon" />
+        <span class="text">{{ post.read_time.text }}</span>
       </span>
       <span v-if="isQuick" class="inline-flex items-center">
-        <span class="mx-1">&bullet;</span>
+        <span class="mx-2">&bullet;</span>
         <span
           class="quick--detail text-customgreen font-medium inline-flex items-center"
         >
@@ -39,12 +42,13 @@
 </template>
 
 <script>
-import { ExternalLinkIcon, ZapIcon } from 'vue-feather-icons'
+import { ExternalLinkIcon, ZapIcon, ClockIcon } from 'vue-feather-icons'
 
 export default {
   components: {
     ExternalLinkIcon,
     ZapIcon,
+    ClockIcon,
   },
   props: {
     post: {
@@ -101,6 +105,12 @@ export default {
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
+  }
+
+  .clock--icon {
+    polyline {
+      @apply text-white;
+    }
   }
 }
 </style>
