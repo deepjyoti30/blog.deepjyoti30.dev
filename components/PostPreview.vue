@@ -25,7 +25,7 @@
     >
       <span class="time inline-flex items-center">
         <ClockIcon
-          size="1x"
+          size="0.8x"
           class="mr-2 fill-current dark:text-white clock--icon"
         />
         <span class="text">{{ post.read_time.text }}</span>
@@ -40,7 +40,7 @@
         >
           <component
             :is="timeStatus.toLowerCase() == 'quick' ? 'ZapIcon' : 'CoffeeIcon'"
-            size="1x"
+            size="0.8x"
             class="fill-current status--icon"
           />
           <span class="text ml-2">{{ timeStatus }} Read</span>
