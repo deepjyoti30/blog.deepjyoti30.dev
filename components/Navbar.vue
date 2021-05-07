@@ -3,31 +3,40 @@
     class="navbar__container bg-white dark:bg-darkhigh border-b border-gray-100 dark:border-gray-900"
   >
     <div
-      class="navbar md:w-2/5 mr-auto ml-auto md:flex md:justify-between md:items-center py-4 md:px-0 px-2 dm-sans text-lg dark:text-white"
+      class="navbar md:w-2/5 mr-auto ml-auto md:flex md:justify-between md:items-center py-4 md:px-0 px-4 dm-sans text-lg dark:text-white"
     >
       <div class="left--content md:block flex justify-between items-center">
-        <nuxt-link to="/" class="brand__container font-medium">
-          <img
-            v-if="!isDark"
-            src="~/assets/img/logo.png"
-            alt="Brand Logo"
-            height="30"
-            width="30"
-          />
-          <img
-            v-else
-            src="~/assets/img/logo_white.png"
-            alt="Brand Logo"
-            height="30"
-            width="30"
-          />
+        <nuxt-link
+          to="/"
+          class="brand__container font-medium inline-flex items-center"
+        >
+          <span class="img--wrapper">
+            <img
+              v-if="!isDark"
+              src="~/assets/img/logo.png"
+              alt="Brand Logo"
+              height="30"
+              width="30"
+            />
+            <img
+              v-else
+              src="~/assets/img/logo_white.png"
+              alt="Brand Logo"
+              height="30"
+              width="30"
+            />
+          </span>
+          <span
+            class="name ml-4 text-lg text-gray-800 dark:text-gray-200 font-semibold md:inline hidden"
+            >Deepjyoti Barman</span
+          >
         </nuxt-link>
         <div class="menu__container md:hidden block" @click="toggleBar">
           <XIcon v-if="expandedBar" />
           <MenuIcon v-else />
         </div>
       </div>
-      <div class="links__container items-center md:flex hidden">
+      <div class="links__container items-center md:flex hidden font-medium">
         <div class="links">
           <nuxt-link to="/">Posts</nuxt-link>
           <a
