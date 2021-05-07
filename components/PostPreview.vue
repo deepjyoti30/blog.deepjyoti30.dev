@@ -24,7 +24,10 @@
       class="extended--details mt-2 text-gray-700 dark:text-gray-400 flex items-center"
     >
       <span class="time inline-flex items-center">
-        <ClockIcon size="1x" class="mr-2 fill-current clock--icon" />
+        <ClockIcon
+          size="1x"
+          class="mr-2 fill-current dark:text-white clock--icon"
+        />
         <span class="text">{{ post.read_time.text }}</span>
       </span>
       <span v-if="isQuick" class="inline-flex items-center">
@@ -110,6 +113,7 @@ export default {
   .clock--icon {
     polyline {
       @apply text-white;
+      @apply dark:text-black;
     }
   }
 }
