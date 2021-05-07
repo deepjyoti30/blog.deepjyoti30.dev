@@ -21,18 +21,30 @@
       {{ post.title }}
     </h1>
     <div class="extended--details mt-2 text-gray-700 dark:text-gray-400">
-      {{ post.read_time.text }}
+      <span class="time">
+        {{ post.read_time.text }}
+      </span>
+      <span v-if="isQuick" class="inline-flex items-center">
+        <span class="mx-1">&bullet;</span>
+        <span
+          class="quick--detail text-customgreen font-medium inline-flex items-center"
+        >
+          <ZapIcon size="1x" class="fill-current" />
+          <span class="text ml-2">Quick Read</span>
+        </span>
+      </span>
     </div>
     <p class="desc text-gray-500 mt-2">{{ post.description }}</p>
   </nuxt-link>
 </template>
 
 <script>
-import { ExternalLinkIcon } from 'vue-feather-icons'
+import { ExternalLinkIcon, ZapIcon } from 'vue-feather-icons'
 
 export default {
   components: {
     ExternalLinkIcon,
+    ZapIcon,
   },
   props: {
     post: {
@@ -65,6 +77,18 @@ export default {
         name: 'post',
         params: { parent: this.post, post: this.post.slug },
       }
+    },
+    isQuick() {
+      /**
+       * Check if the post is quick to read.
+       *
+       * We'll consider anythin less than 5 mins a quick
+       * read.
+       */
+      // 1 min is 60 seconds so divide the total seconds by 60.
+      const timeInMins = parseInt(this.post.read_time.seconds / 60)
+
+      return timeInMins < 5
     },
   },
 }
