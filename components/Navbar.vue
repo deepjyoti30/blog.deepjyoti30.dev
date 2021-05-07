@@ -1,7 +1,7 @@
 <template>
-  <nav class="navbar__container">
+  <nav class="navbar__container bg-white border-b border-gray-100">
     <div
-      class="navbar md:flex md:justify-between md:items-center py-6 dm-sans text-lg dark:text-white"
+      class="navbar md:w-2/5 mr-auto ml-auto md:flex md:justify-between md:items-center py-4 dm-sans text-lg dark:text-white"
     >
       <div class="left--content md:block flex justify-between items-center">
         <nuxt-link to="/" class="brand__container font-medium">
@@ -42,13 +42,13 @@
         <div class="quicks flex items-center">
           <button
             type="button"
-            class="quick-btn p-1 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition duration-100 ease-in"
+            class="quick-btn button-cust"
             @click="toggleDarkMode"
           >
             <MoonIcon v-if="!isDark" size="1.1x" class="fill-current" />
             <SunIcon v-else class="sun--icon" size="1.1x" />
           </button>
-          <a href="/feed.xml" type="button" class="quick-btn">
+          <a href="/feed.xml" type="button" class="quick-btn button-cust">
             <RssIcon size="1.1x" />
           </a>
         </div>
@@ -223,7 +223,7 @@ export default {
 
       .quicks {
         .quick-btn {
-          @apply mr-4;
+          @apply mr-2;
 
           &:last-child {
             @apply mr-0;

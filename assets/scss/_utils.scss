@@ -1,0 +1,5 @@
+// Button
+
+.button-cust {
+    @apply p-1 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition duration-100 ease-in;
+}
