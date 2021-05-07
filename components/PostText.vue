@@ -50,7 +50,7 @@ export default {
       @extend .dm-sans;
       @apply font-medium;
 
-      @apply text-black;
+      @apply text-black dark:text-gray-200;
     }
 
     h1,
