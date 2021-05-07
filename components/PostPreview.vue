@@ -38,7 +38,11 @@
             timeStatus.toLowerCase() == 'quick' ? 'customgreen' : 'skyblue'
           }`"
         >
-          <ZapIcon size="1x" class="fill-current" />
+          <component
+            :is="timeStatus.toLowerCase() == 'quick' ? 'ZapIcon' : 'CoffeeIcon'"
+            size="1x"
+            class="fill-current status--icon"
+          />
           <span class="text ml-2">{{ timeStatus }} Read</span>
         </span>
       </span>
@@ -48,13 +52,19 @@
 </template>
 
 <script>
-import { ExternalLinkIcon, ZapIcon, ClockIcon } from 'vue-feather-icons'
+import {
+  ExternalLinkIcon,
+  ZapIcon,
+  ClockIcon,
+  CoffeeIcon,
+} from 'vue-feather-icons'
 
 export default {
   components: {
     ExternalLinkIcon,
     ZapIcon,
     ClockIcon,
+    CoffeeIcon,
   },
   props: {
     post: {
@@ -124,6 +134,12 @@ export default {
     polyline {
       @apply text-white;
       @apply dark:text-black;
+    }
+  }
+
+  .status--icon {
+    path:first-child {
+      fill: none;
     }
   }
 }
