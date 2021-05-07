@@ -46,7 +46,7 @@ export default {
     h4,
     h5,
     h6 {
-      @apply my-2;
+      @apply my-4;
       @extend .dm-sans;
       @apply font-medium;
     }
