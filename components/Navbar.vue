@@ -1,7 +1,9 @@
 <template>
-  <nav class="navbar__container bg-white border-b border-gray-100">
+  <nav
+    class="navbar__container bg-white dark:bg-darkhigh border-b border-gray-100 dark:border-gray-900"
+  >
     <div
-      class="navbar md:w-2/5 mr-auto ml-auto md:flex md:justify-between md:items-center py-4 dm-sans text-lg dark:text-white"
+      class="navbar md:w-2/5 mr-auto ml-auto md:flex md:justify-between md:items-center py-4 md:px-0 px-2 dm-sans text-lg dark:text-white"
     >
       <div class="left--content md:block flex justify-between items-center">
         <nuxt-link to="/" class="brand__container font-medium">
