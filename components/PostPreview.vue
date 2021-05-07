@@ -30,13 +30,16 @@
         />
         <span class="text">{{ post.read_time.text }}</span>
       </span>
-      <span v-if="isQuick" class="inline-flex items-center">
+      <span v-if="timeStatus != null" class="inline-flex items-center">
         <span class="mx-2">&bullet;</span>
         <span
-          class="quick--detail text-customgreen font-medium inline-flex items-center"
+          class="quick--detail font-medium inline-flex items-center"
+          :class="`text-${
+            timeStatus.toLowerCase() == 'quick' ? 'customgreen' : 'skyblue'
+          }`"
         >
           <ZapIcon size="1x" class="fill-current" />
-          <span class="text ml-2">Quick Read</span>
+          <span class="text ml-2">{{ timeStatus }} Read</span>
         </span>
       </span>
     </div>
@@ -85,7 +88,7 @@ export default {
         params: { parent: this.post, post: this.post.slug },
       }
     },
-    isQuick() {
+    timeStatus() {
       /**
        * Check if the post is quick to read.
        *
@@ -95,7 +98,14 @@ export default {
       // 1 min is 60 seconds so divide the total seconds by 60.
       const timeInMins = parseInt(this.post.read_time.seconds / 60)
 
-      return timeInMins < 5
+      switch (true) {
+        case timeInMins <= 2:
+          return 'Quick'
+        case timeInMins <= 4:
+          return 'Coffee'
+        default:
+          return null
+      }
     },
   },
 }
