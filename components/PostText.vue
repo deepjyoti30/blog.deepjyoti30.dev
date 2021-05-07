@@ -49,6 +49,8 @@ export default {
       @apply my-4;
       @extend .dm-sans;
       @apply font-medium;
+
+      @apply text-black;
     }
 
     h1,
