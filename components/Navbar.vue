@@ -40,8 +40,12 @@
         </div>
         <div class="separator h-5 w-0.5 mx-4 bg-customgreen"></div>
         <div class="quicks flex items-center">
-          <button type="button" class="quick-btn" @click="toggleDarkMode">
-            <MoonIcon v-if="!isDark" size="1.1x" />
+          <button
+            type="button"
+            class="quick-btn p-1 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition duration-100 ease-in"
+            @click="toggleDarkMode"
+          >
+            <MoonIcon v-if="!isDark" size="1.1x" class="fill-current" />
             <SunIcon v-else class="sun--icon" size="1.1x" />
           </button>
           <a href="/feed.xml" type="button" class="quick-btn">
