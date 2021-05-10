@@ -1,10 +1,10 @@
 <template>
-  <div class="scroll--top__container fixed bg-white">
+  <div class="scroll--top__container fixed">
     <button
-      class="scroll--content border rounded-2xl p-3 outline-none focus:outline-none"
+      class="scroll--content rounded-2xl p-3 outline-none focus:outline-none bg-green-300 shadow-2xl transform hover:scale-125 transition duration-50 ease-in"
       @click="goToTop"
     >
-      <ArrowUpIcon size="2.2x" />
+      <ArrowUpIcon size="1.5x" />
     </button>
   </div>
 </template>
