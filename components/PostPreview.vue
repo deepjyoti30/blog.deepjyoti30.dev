@@ -2,13 +2,13 @@
   <nuxt-link
     :to="getPostLink"
     :target="post.on_dev ? '_blank' : null"
-    class="post--preview__container mb-8 block hover:bg-gray-100 transition duration-100 ease-in md:p-4 p-1 rounded-lg"
+    class="post--preview__container md:mb-8 mb-4 block hover:bg-gray-100 transition duration-100 ease-in md:p-4 p-1 rounded-lg"
   >
     <div class="wrapper flex md:flex-row flex-row-reverse">
       <div class="preview--text__container md:w-3/4 w-2/3 pr-4">
         <div class="post--title">
           <h1
-            class="md:text-xl text-lg dm-sans font-bold text-darkblue dark:text-darkblue-300"
+            class="md:text-xl dm-sans font-bold text-darkblue dark:text-darkblue-300"
           >
             {{ post.title }}
             <div v-if="post.on_dev" class="inline-flex">
@@ -18,7 +18,9 @@
             </div>
           </h1>
         </div>
-        <div class="quick--details__container flex items-center">
+        <div
+          class="quick--details__container flex items-center md:text-base text-sm"
+        >
           <div
             class="post--top--details my-2 flex text-gray-600 dark:text-gray-400"
           >
@@ -148,6 +150,10 @@ export default {
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
+
+    @media only screen and (max-width: 768px) {
+      display: none;
+    }
   }
 
   .clock--icon {
