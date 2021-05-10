@@ -6,23 +6,24 @@
   >
     <div class="wrapper flex">
       <div class="preview--text__container w-3/4 pr-4">
-        <h1
-          class="md:text-xl text-lg dm-sans font-bold text-darkblue dark:text-darkblue-300"
-        >
-          {{ post.title }}
-        </h1>
+        <div class="post--title">
+          <h1
+            class="md:text-xl text-lg dm-sans font-bold text-darkblue dark:text-darkblue-300"
+          >
+            {{ post.title }}
+            <div v-if="post.on_dev" class="inline-flex">
+              <span class="external--link__indicatior" title="External link">
+                <ExternalLinkIcon size="0.8x" />
+              </span>
+            </div>
+          </h1>
+        </div>
         <div class="quick--details__container flex items-center">
           <div
             class="post--top--details my-2 flex text-gray-600 dark:text-gray-400"
           >
             <div class="date__container dm-sans font-medium">
               {{ getDate }}
-            </div>
-            <div v-if="post.on_dev" class="flex">
-              <span class="mx-2">&bullet;</span>
-              <span class="external--link__indicatior" title="External link">
-                <ExternalLinkIcon size="1.1x" />
-              </span>
             </div>
           </div>
           <div class="extended--details text-gray-700 dark:text-gray-400">
