@@ -1,7 +1,7 @@
 <template>
   <div class="post--header__container">
     <h1
-      class="md:text-5xl text-4xl dm-sans font-bold text-darkblue dark:text-darkblue-300 post--title"
+      class="md:text-4xl text-3xl dm-sans font-bold text-darkblue dark:text-darkblue-300 post--title"
     >
       {{ post.title }}
     </h1>
