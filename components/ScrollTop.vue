@@ -61,8 +61,25 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(5%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .scroll--top__container {
   bottom: 5%;
   right: 3%;
+
+  .scroll--content {
+    // Animate reveal
+    animation-name: slideUp;
+    animation-duration: 1s;
+  }
 }
 </style>
