@@ -6,8 +6,12 @@
     >
       {{ heading }}
     </h1>
-    <div v-for="post in posts" :key="post.post_id">
-      <PostPreview :post="post" />
+    <div v-for="(post, index) in posts" :key="post.post_id">
+      <PostPreview
+        :post="post"
+        :position="index"
+        :disableExpanded="getDisableExpanded"
+      />
     </div>
   </div>
 </template>
@@ -28,6 +32,15 @@ export default {
     noHeading: {
       type: Boolean,
       default: false,
+    },
+    disableExpanded: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  computed: {
+    getDisableExpanded() {
+      return this.disableExpanded
     },
   },
 }

@@ -1,12 +1,12 @@
 <template>
   <div class="post--header__container">
     <h1
-      class="md:text-4xl text-3xl dm-sans font-semibold text-darkblue dark:text-darkblue-300"
+      class="md:text-4xl text-3xl dm-sans font-bold text-darkblue dark:text-darkblue-300 post--title"
     >
       {{ post.title }}
     </h1>
     <div
-      class="more--details md:flex justify-between items-center text-gray-500 dark:text-gray-400 md:mt-4 md:my-0 mt-8 mb-2 font-medium"
+      class="more--details md:flex justify-between items-center text-gray-500 dark:text-gray-400 md:mt-6 md:my-0 mt-8 mb-2 font-medium"
     >
       <div class="post--details md:flex">
         <div class="author--details inline-flex items-center">
@@ -58,3 +58,11 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" scoped>
+.post--header__container {
+  .post--title {
+    line-height: 1.3em;
+  }
+}
+</style>

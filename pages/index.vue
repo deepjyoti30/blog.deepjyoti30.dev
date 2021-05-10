@@ -1,16 +1,14 @@
 <template>
   <div>
-    <Subscribe class="my-4" />
     <PostsContainer class="my-10" :posts="posts" no-heading />
   </div>
 </template>
 
 <script>
 import PostsContainer from '~/components/PostsContainer.vue'
-import Subscribe from '~/components/Subscribe.vue'
 
 export default {
-  components: { PostsContainer, Subscribe },
+  components: { PostsContainer },
   async asyncData() {
     // Fetch the posts based on the fetch URL
     const posts = await fetch(

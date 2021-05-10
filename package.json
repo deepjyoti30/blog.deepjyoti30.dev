@@ -12,6 +12,7 @@
     "@nuxtjs/feed": "^2.0.0",
     "@nuxtjs/pwa": "^3.3.5",
     "core-js": "^3.8.3",
+    "fibers": "^5.0.0",
     "micromodal": "^0.4.6",
     "nuxt": "^2.14.12",
     "vue-feather-icons": "^5.1.0"
@@ -28,7 +29,6 @@
     "eslint-loader": "^4.0.2",
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-vue": "^7.7.0",
-    "fibers": "^5.0.0",
     "postcss": "^7.0.35",
     "prettier": "^2.2.1",
     "sass": "^1.32.8",
