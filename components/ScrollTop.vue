@@ -21,11 +21,13 @@ export default {
   props: {
     scrollAmount: {
       type: Number,
-      default: 20,
+      default: 1000,
     },
   },
-  data: {
-    scrolledAmount: 0,
+  data: () => {
+    return {
+      showButton: false,
+    }
   },
   methods: {
     goToTop: function () {
@@ -39,18 +41,21 @@ export default {
         behavior: 'smooth',
       })
     },
-  },
-  computed: {
-    showButton() {
+    updateScrollAmount: function () {
       /**
-       * Check if the page is scrolled enough to show the scroll
-       * button.
+       * Update the scrolled amount when this method
+       * is called.
        */
-      return (
-        this.scrolledAmount > this.scrollAmount ||
-        this.scrolledAmount > this.scrollAmount
-      )
+      this.showButton =
+        document.body.scrollTop > this.scrollAmount ||
+        document.documentElement.scrollTop > this.scrollAmount
     },
+  },
+  beforeMount() {
+    window.addEventListener('scroll', this.updateScrollAmount)
+  },
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.updateScrollAmount)
   },
 }
 </script>
