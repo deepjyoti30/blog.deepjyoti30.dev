@@ -3,7 +3,7 @@
     <transition name="reveal">
       <button
         v-if="showButton"
-        class="scroll--content rounded-2xl p-3 outline-none focus:outline-none bg-green-300 shadow-2xl"
+        class="scroll--content rounded-2xl p-3 outline-none focus:outline-none bg-green-300 shadow-2xl transform hover:scale-105 transition duration-50"
         @click="goToTop"
       >
         <ArrowUpIcon size="1.5x" />
@@ -71,7 +71,7 @@ export default {
 .reveal-enter,
 .reveal-leave-to {
   opacity: 0;
-  transform: translateY(25%);
+  transform: translateY(5%);
 }
 .reveal-enter-to,
 .reveal-leave {
