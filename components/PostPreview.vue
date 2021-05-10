@@ -4,9 +4,13 @@
     :target="post.on_dev ? '_blank' : null"
     class="post--preview__container md:mb-8 mb-4 block hover:bg-gray-100 dark:hover:bg-darkhigh transition duration-50 ease-in md:p-4 p-1 rounded-lg"
   >
+    <div v-if="isFirst" class="cover--expanded mb-6">
+      <img :src="getCoverExpanded" alt="" class="rounded-md" />
+    </div>
     <div class="wrapper flex md:flex-row flex-row-reverse">
       <div
-        class="preview--text__container xl:w-3/5 w-2/3 md:pr-4 md:pl-0 pr-0 pl-3"
+        class="preview--text__container"
+        :class="!isFirst ? `xl:w-3/5 w-2/3 md:pr-4 md:pl-0 pr-0 pl-3` : ''"
       >
         <div class="post--title">
           <h1
@@ -65,7 +69,7 @@
         </div>
         <p class="desc text-gray-500 mt-2">{{ post.description }}</p>
       </div>
-      <div class="preview--img__container xl:w-2/5 w-1/3">
+      <div v-if="!isFirst" class="preview--img__container xl:w-2/5 w-1/3">
         <img :src="getCover" alt="" class="rounded-md" />
       </div>
     </div>
@@ -147,6 +151,12 @@ export default {
     getCover() {
       return this.getImgUrl(this.post.cover_img, 250)
     },
+    getCoverExpanded() {
+      return this.getImgUrl(this.post.cover_img, 750)
+    },
+    isFirst() {
+      return this.position == 0
+    },
   },
 }
 </script>
@@ -187,6 +197,14 @@ export default {
         width: 110px;
         height: 110px;
       }
+    }
+  }
+
+  .cover--expanded {
+    img {
+      width: 750px;
+      height: 350px;
+      object-fit: cover;
     }
   }
 }
