@@ -4,10 +4,13 @@
     :target="post.on_dev ? '_blank' : null"
     class="post--preview__container md:mb-8 mb-4 block hover:bg-gray-100 dark:hover:bg-darkhigh transition duration-50 ease-in md:p-4 p-1 rounded-lg"
   >
-    <div v-if="isFirst" class="cover--expanded mb-6">
+    <div v-if="isFirst" class="cover--expanded md:mb-6 mb-4">
       <img :src="getCoverExpanded" alt="" class="rounded-md" />
     </div>
-    <div class="wrapper flex md:flex-row flex-row-reverse">
+    <div
+      class="wrapper flex"
+      :class="!isFirst ? 'md:flex-row flex-row-reverse' : ''"
+    >
       <div
         class="preview--text__container"
         :class="!isFirst ? `xl:w-3/5 w-2/3 md:pr-4 md:pl-0 pr-0 pl-3` : ''"
@@ -209,6 +212,10 @@ export default {
       width: 750px;
       height: 350px;
       object-fit: cover;
+
+      @media only screen and (max-width: 768px) {
+        height: 200px;
+      }
     }
   }
 }
