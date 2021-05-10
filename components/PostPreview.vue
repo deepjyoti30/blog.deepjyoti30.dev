@@ -70,7 +70,9 @@
             </span>
           </div>
         </div>
-        <p class="desc text-gray-500 mt-2">{{ post.description }}</p>
+        <!--Since the p is disabled based on the breakpoint, we need one just for the first post-->
+        <p v-if="isFirst" class="text-gray-500 mt-2">{{ post.description }}</p>
+        <p v-else class="desc text-gray-500 mt-2">{{ post.description }}</p>
       </div>
       <div v-if="!isFirst" class="preview--img__container xl:w-2/5 w-1/3">
         <img :src="getCover" alt="" class="rounded-md" />
