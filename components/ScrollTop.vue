@@ -1,10 +1,10 @@
 <template>
-  <div class="scroll--top__container absolute border p-4"></div>
+  <div class="scroll--top__container border p-4 fixed bg-white">Scroll</div>
 </template>
 
 <style lang="scss" scoped>
 .scroll--top__container {
-  bottom: 0;
-  right: 0;
+  bottom: 5%;
+  right: 3%;
 }
 </style>
