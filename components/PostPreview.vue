@@ -2,10 +2,10 @@
   <nuxt-link
     :to="getPostLink"
     :target="post.on_dev ? '_blank' : null"
-    class="post--preview__container mb-8 block hover:bg-gray-100 transition duration-100 ease-in p-2 rounded-lg"
+    class="post--preview__container mb-8 block hover:bg-gray-100 transition duration-100 ease-in p-4 rounded-lg"
   >
-    <div class="wrapper flex items-center">
-      <div class="preview--text__container">
+    <div class="wrapper flex">
+      <div class="preview--text__container w-3/4 pr-4">
         <h1
           class="md:text-xl text-lg dm-sans font-bold text-darkblue dark:text-darkblue-300"
         >
@@ -55,7 +55,7 @@
         </div>
         <p class="desc text-gray-500 mt-2">{{ post.description }}</p>
       </div>
-      <div class="preview--img__container w-1/2 p-2">
+      <div class="preview--img__container">
         <img :src="getCover" alt="" class="rounded-md" />
       </div>
     </div>
@@ -154,6 +154,14 @@ export default {
   .status--icon {
     path:first-child {
       fill: none;
+    }
+  }
+
+  .preview--img__container {
+    img {
+      width: 250px;
+      height: 150px;
+      object-fit: cover;
     }
   }
 }
