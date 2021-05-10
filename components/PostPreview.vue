@@ -79,6 +79,7 @@ import {
   ClockIcon,
   CoffeeIcon,
 } from 'vue-feather-icons'
+import { image } from '~/mixins/image'
 
 export default {
   components: {
@@ -93,6 +94,7 @@ export default {
       default: null,
     },
   },
+  mixins: [image],
   computed: {
     getTags() {
       // Parse the tags to make them readable
@@ -139,7 +141,7 @@ export default {
       }
     },
     getCover() {
-      return this.post.cover_img
+      return this.getImgUrl(this.post.cover_img, 250)
     },
   },
 }
