@@ -5,7 +5,9 @@
     class="post--preview__container md:mb-8 mb-4 block hover:bg-gray-100 transition duration-100 ease-in md:p-4 p-1 rounded-lg"
   >
     <div class="wrapper flex md:flex-row flex-row-reverse">
-      <div class="preview--text__container md:w-3/4 w-2/3 pr-4">
+      <div
+        class="preview--text__container xl:w-3/5 w-2/3 md:pr-4 md:pl-0 pr-0 pl-3"
+      >
         <div class="post--title">
           <h1
             class="md:text-xl dm-sans font-bold text-darkblue dark:text-darkblue-300"
@@ -63,7 +65,7 @@
         </div>
         <p class="desc text-gray-500 mt-2">{{ post.description }}</p>
       </div>
-      <div class="preview--img__container md:w-1/4 w-1/3">
+      <div class="preview--img__container xl:w-2/5 w-1/3">
         <img :src="getCover" alt="" class="rounded-md" />
       </div>
     </div>
@@ -176,8 +178,8 @@ export default {
       object-fit: cover;
 
       @media only screen and (max-width: 768px) {
-        width: 100%;
-        height: auto;
+        width: 110px;
+        height: 110px;
       }
     }
   }
