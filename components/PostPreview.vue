@@ -11,47 +11,52 @@
         >
           {{ post.title }}
         </h1>
-        <div
-          class="post--top--details my-2 flex text-gray-600 dark:text-gray-400"
-        >
-          <div class="date__container dm-sans font-medium">
-            {{ getDate }}
+        <div class="quick--details__container flex items-center">
+          <div
+            class="post--top--details my-2 flex text-gray-600 dark:text-gray-400"
+          >
+            <div class="date__container dm-sans font-medium">
+              {{ getDate }}
+            </div>
+            <div v-if="post.on_dev" class="flex">
+              <span class="mx-2">&bullet;</span>
+              <span class="external--link__indicatior" title="External link">
+                <ExternalLinkIcon size="1.1x" />
+              </span>
+            </div>
           </div>
-          <div v-if="post.on_dev" class="flex">
-            <span class="mx-2">&bullet;</span>
-            <span class="external--link__indicatior" title="External link">
-              <ExternalLinkIcon size="1.1x" />
+          <div class="extended--details text-gray-700 dark:text-gray-400">
+            <span v-if="timeStatus != null" class="inline-flex items-center">
+              <span class="mx-2">&bullet;</span>
+              <span
+                class="quick--detail font-medium inline-flex items-center"
+                :class="`text-${
+                  timeStatus.toLowerCase() == 'quick'
+                    ? 'customgreen'
+                    : 'skyblue'
+                }`"
+              >
+                <component
+                  :is="
+                    timeStatus.toLowerCase() == 'quick'
+                      ? 'ZapIcon'
+                      : 'CoffeeIcon'
+                  "
+                  size="0.8x"
+                  class="fill-current status--icon"
+                />
+                <span class="text ml-2">{{ timeStatus }} Read</span>
+              </span>
             </span>
-          </div>
-        </div>
-        <div
-          class="extended--details mt-2 text-gray-700 dark:text-gray-400 flex items-center hidden"
-        >
-          <span class="time inline-flex items-center">
-            <ClockIcon
-              size="0.8x"
-              class="mr-2 fill-current dark:text-white clock--icon"
-            />
-            <span class="text">{{ post.read_time.text }}</span>
-          </span>
-          <span v-if="timeStatus != null" class="inline-flex items-center">
-            <span class="mx-2">&bullet;</span>
-            <span
-              class="quick--detail font-medium inline-flex items-center"
-              :class="`text-${
-                timeStatus.toLowerCase() == 'quick' ? 'customgreen' : 'skyblue'
-              }`"
-            >
-              <component
-                :is="
-                  timeStatus.toLowerCase() == 'quick' ? 'ZapIcon' : 'CoffeeIcon'
-                "
+            <span v-else class="time inline-flex items-center">
+              <span class="mx-2">&bullet;</span>
+              <ClockIcon
                 size="0.8x"
-                class="fill-current status--icon"
+                class="mr-2 fill-current dark:text-white clock--icon"
               />
-              <span class="text ml-2">{{ timeStatus }} Read</span>
+              <span class="text">{{ post.read_time.text }}</span>
             </span>
-          </span>
+          </div>
         </div>
         <p class="desc text-gray-500 mt-2">{{ post.description }}</p>
       </div>
