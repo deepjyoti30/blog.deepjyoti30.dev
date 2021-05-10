@@ -1,12 +1,14 @@
 <template>
   <div class="scroll--top__container fixed">
-    <button
-      v-if="showButton"
-      class="scroll--content rounded-2xl p-3 outline-none focus:outline-none bg-green-300 shadow-2xl transform hover:scale-125 transition duration-50"
-      @click="goToTop"
-    >
-      <ArrowUpIcon size="1.5x" />
-    </button>
+    <transition name="reveal">
+      <button
+        v-if="showButton"
+        class="scroll--content rounded-2xl p-3 outline-none focus:outline-none bg-green-300 shadow-2xl"
+        @click="goToTop"
+      >
+        <ArrowUpIcon size="1.5x" />
+      </button>
+    </transition>
   </div>
 </template>
 
@@ -61,25 +63,24 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@keyframes slideUp {
-  0% {
-    opacity: 0;
-    transform: translateY(5%);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 .scroll--top__container {
   bottom: 5%;
   right: 3%;
+}
 
-  .scroll--content {
-    // Animate reveal
-    animation-name: slideUp;
-    animation-duration: 1s;
-  }
+.reveal-enter,
+.reveal-leave-to {
+  opacity: 0;
+  transform: translateY(25%);
+}
+.reveal-enter-to,
+.reveal-leave {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-enter-active,
+.reveal-leave-active {
+  transition: opacity, transform 0.5s;
 }
 </style>
