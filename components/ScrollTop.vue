@@ -1,6 +1,7 @@
 <template>
   <div class="scroll--top__container fixed">
     <button
+      v-if="showButton"
       class="scroll--content rounded-2xl p-3 outline-none focus:outline-none bg-green-300 shadow-2xl transform hover:scale-125 transition duration-50 ease-in"
       @click="goToTop"
     >
@@ -17,6 +18,15 @@ export default {
   components: {
     ArrowUpIcon,
   },
+  props: {
+    scrollAmount: {
+      type: Number,
+      default: 20,
+    },
+  },
+  data: {
+    scrolledAmount: 0,
+  },
   methods: {
     goToTop: function () {
       /**
@@ -28,6 +38,18 @@ export default {
         left: 0,
         behavior: 'smooth',
       })
+    },
+  },
+  computed: {
+    showButton() {
+      /**
+       * Check if the page is scrolled enough to show the scroll
+       * button.
+       */
+      return (
+        this.scrolledAmount > this.scrollAmount ||
+        this.scrolledAmount > this.scrollAmount
+      )
     },
   },
 }
