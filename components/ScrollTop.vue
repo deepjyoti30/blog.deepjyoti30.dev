@@ -2,7 +2,7 @@
   <div class="scroll--top__container fixed">
     <button
       v-if="showButton"
-      class="scroll--content rounded-2xl p-3 outline-none focus:outline-none bg-green-300 shadow-2xl transform hover:scale-125 transition duration-50 ease-in"
+      class="scroll--content rounded-2xl p-3 outline-none focus:outline-none bg-green-300 shadow-2xl transform hover:scale-125 transition duration-50"
       @click="goToTop"
     >
       <ArrowUpIcon size="1.5x" />
