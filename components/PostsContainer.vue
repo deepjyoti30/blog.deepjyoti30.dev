@@ -6,8 +6,8 @@
     >
       {{ heading }}
     </h1>
-    <div v-for="post in posts" :key="post.post_id">
-      <PostPreview :post="post" />
+    <div v-for="(post, index) in posts" :key="post.post_id">
+      <PostPreview :post="post" :position="index" />
     </div>
   </div>
 </template>

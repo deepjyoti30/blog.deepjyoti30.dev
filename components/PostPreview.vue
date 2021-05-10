@@ -93,6 +93,10 @@ export default {
       type: Object,
       default: null,
     },
+    position: {
+      type: Number,
+      default: -1,
+    },
   },
   mixins: [image],
   computed: {
