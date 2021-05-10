@@ -101,6 +101,10 @@ export default {
       type: Number,
       default: -1,
     },
+    disableExpanded: {
+      type: Boolean,
+      default: false,
+    },
   },
   mixins: [image],
   computed: {
@@ -155,7 +159,7 @@ export default {
       return this.getImgUrl(this.post.cover_img, 750)
     },
     isFirst() {
-      return this.position == 0
+      return !this.disableExpanded && this.position == 0
     },
   },
 }

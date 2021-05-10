@@ -5,7 +5,11 @@
     <PostText :content="post.content" />
     <PostTail :post="post" />
     <div v-if="isRelatedLoaded" class="related--wrapper mt-8">
-      <PostsContainer :posts="posts" heading="Read More" />
+      <PostsContainer
+        :posts="posts"
+        heading="Read More"
+        :disableExpanded="true"
+      />
     </div>
   </div>
 </template>
