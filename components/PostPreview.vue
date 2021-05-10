@@ -2,7 +2,7 @@
   <nuxt-link
     :to="getPostLink"
     :target="post.on_dev ? '_blank' : null"
-    class="post--preview__container md:mb-8 mb-4 block hover:bg-gray-100 transition duration-50 ease-in md:p-4 p-1 rounded-lg"
+    class="post--preview__container md:mb-8 mb-4 block hover:bg-gray-100 dark:hover:bg-darkhigh transition duration-50 ease-in md:p-4 p-1 rounded-lg"
   >
     <div class="wrapper flex md:flex-row flex-row-reverse">
       <div
