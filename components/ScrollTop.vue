@@ -1,5 +1,5 @@
 <template>
-  <div class="scroll--top__container fixed">
+  <div v-if="shouldRender" class="scroll--top__container fixed">
     <transition name="reveal">
       <button
         v-if="showButton"
@@ -28,6 +28,7 @@ export default {
   },
   data: () => {
     return {
+      shouldRender: true,
       showButton: false,
     }
   },
@@ -55,6 +56,10 @@ export default {
   },
   beforeMount() {
     window.addEventListener('scroll', this.updateScrollAmount)
+
+    // Hide the component if it on a mobile device
+    console.log(window.innerWidth)
+    if (window.innerWidth <= 768) this.shouldRender = false
   },
   beforeDestroy() {
     window.removeEventListener('scroll', this.updateScrollAmount)
