@@ -2,6 +2,7 @@
 @import "colors";
 @import "dark";
 @import "micromodal";
+@import "utils";
 
 
 body {
@@ -10,4 +11,8 @@ body {
     @apply transition;
     @apply duration-100;
     @apply ease-in;
+}
+
+html {
+    scroll-behavior: smooth;
 }

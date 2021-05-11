@@ -1,12 +1,7 @@
 <template>
-  <div class="footer__container">
+  <div class="footer__container border-t-2 dark:border-gray-700 mt-6">
     <div
-      class="top--statement font-medium text-center text-2xl text-gray-600 dm-sans hidden"
-    >
-      I build useful, creative and confident apps.
-    </div>
-    <div
-      class="bottom--content mt-6 py-6 md:flex md:justify-between border-t-2 dark:border-gray-700 text-gray-500 dark:text-gray-400 text-center"
+      class="bottom--content md:w-3/5 mr-auto ml-auto py-5 md:flex md:justify-between text-gray-500 dark:text-gray-400 text-center"
     >
       <div class="copyright--content">© 2021-Present Deepjyoti Barman</div>
       <div class="social--content inline-flex md:mt-0 mt-6">

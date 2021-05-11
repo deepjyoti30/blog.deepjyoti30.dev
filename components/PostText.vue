@@ -46,9 +46,20 @@ export default {
     h4,
     h5,
     h6 {
-      @apply my-5;
+      @apply my-4;
       @extend .dm-sans;
       @apply font-medium;
+
+      @apply text-black dark:text-gray-200;
+    }
+
+    h1,
+    h2 {
+      @apply mt-12;
+    }
+
+    h3 {
+      @apply mt-10;
     }
 
     p {
