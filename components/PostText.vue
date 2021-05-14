@@ -63,7 +63,7 @@ export default {
     }
 
     p {
-      @apply my-2;
+      @apply my-4;
 
       strong {
         @apply font-medium;
