@@ -153,7 +153,7 @@ export default {
 
   // Google Analytics
   googleAnalytics: {
-    id: 'G-WQ2B2XX8DG'
+    id: 'UA-152084173-7'
   },
 
   pwa: {
