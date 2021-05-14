@@ -42,10 +42,10 @@
               <span class="mx-2">&bullet;</span>
               <span
                 class="quick--detail font-medium inline-flex items-center"
-                :class="`text-${
+                :class="`${
                   timeStatus.toLowerCase() == 'quick'
-                    ? 'customgreen'
-                    : 'skyblue'
+                    ? 'text-green-500'
+                    : 'text-blue-400'
                 }`"
               >
                 <component
