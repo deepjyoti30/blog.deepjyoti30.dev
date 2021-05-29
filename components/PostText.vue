@@ -79,6 +79,11 @@ export default {
       }
     }
 
+    p,
+    li {
+      @apply md:leading-relaxed leading-normal;
+    }
+
     img {
       @apply rounded;
       @apply my-4;
