@@ -1,5 +1,9 @@
 <template>
-  <div class="post--text__container" v-html="content"></div>
+  <div
+    ref="contentContainer"
+    class="post--text__container"
+    v-html="content"
+  ></div>
 </template>
 
 <script>
@@ -9,6 +13,20 @@ export default {
       type: String,
       default: '',
     },
+  },
+  methods: {
+    makeLinksOpenInNew: function () {
+      /**
+       * Make all the links inside the readable content open
+       * in new tabs by using the `target` attribute.
+       */
+      this.$refs.contentContainer.querySelectorAll('a').forEach((el) => {
+        el.target = '_blank'
+      })
+    },
+  },
+  mounted() {
+    this.makeLinksOpenInNew()
   },
 }
 </script>
