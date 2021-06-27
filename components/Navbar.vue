@@ -85,12 +85,12 @@
             @click="toggleDarkMode"
           >
             <MoonIcon
-              v-if="currentThemeIndex == 1"
+              v-if="currentThemeIndex == 2"
               size="1.1x"
               class="fill-current"
             />
             <SunIcon
-              v-else-if="currentThemeIndex == 2"
+              v-else-if="currentThemeIndex == 1"
               class="sun--icon"
               size="1.1x"
             />
@@ -251,8 +251,8 @@ export default {
 
       // Set the theme in the app
       if (currentTheme == 'auto')
-        return this.toggleTheme(this.isDeviceDarkTheme(), true)
-      else this.toggleTheme(currentTheme == 'dark')
+        this.toggleTheme(this.isDeviceDarkTheme(), true)
+      else this.toggleTheme(currentTheme == 'dark', true)
 
       // Now save the theme.
       this.setTheme(currentTheme)
