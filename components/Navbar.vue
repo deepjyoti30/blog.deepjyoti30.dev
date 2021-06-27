@@ -235,10 +235,18 @@ export default {
       // NOTE: This method is called only when the user clicks on the theme button change
       // because this will save the theme to the storage.
       this.toggleThemeIndex()
-      this.toggleTheme(this.isDark)
+
+      // Now we need to check what the theme is. If the theme is
+      // auto, we need to find the device theme and set it accordingly.
+      const currentTheme = this.themeOptions[this.currentThemeIndex]
+
+      // Set the theme in the app
+      if (currentTheme == 'auto')
+        return this.toggleTheme(this.isDeviceDarkTheme(), true)
+      else this.toggleTheme(currentTheme == 'dark')
 
       // Now save the theme.
-      this.setTheme(this.themeOptions[this.currentThemeIndex])
+      this.setTheme(currentTheme)
     },
     determineTheme: function () {
       /**
