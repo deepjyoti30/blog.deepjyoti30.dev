@@ -160,6 +160,7 @@ export default {
     return {
       isDark: false,
       expandedBar: false,
+      currentThemeIndex: 0,
       themeOptions: ['auto', 'dark', 'light'],
     }
   },
@@ -217,13 +218,27 @@ export default {
 
       checkDark ? this.disableDarkMode() : this.enableDarkMode()
     },
+    toggleThemeIndex: function () {
+      /**
+       * Toggle the index of the theme.
+       *
+       * We need to check if the index is equal to
+       * the length of the theme options, if so then
+       * put it back to 0.
+       */
+      if (this.currentThemeIndex == this.themeOptions.length - 1)
+        return (this.currentThemeIndex = 0)
+      this.currentThemeIndex += 1
+    },
     toggleDarkMode: function () {
       // Toggle the theme
       // NOTE: This method is called only when the user clicks on the theme button change
       // because this will save the theme to the storage.
+      this.toggleThemeIndex()
       this.toggleTheme(this.isDark)
 
-      this.setTheme(this.isDark ? 'dark' : 'light')
+      // Now save the theme.
+      this.setTheme(this.themeOptions[this.currentThemeIndex])
     },
     determineTheme: function () {
       /**
@@ -239,6 +254,7 @@ export default {
        * And finally the fallback would be light.
        */
       const themeFetched = this.getTheme()
+      this.currentThemeIndex = this.themeOptions.indexOf(themeFetched)
 
       // If the theme is not saved, use auto as fallback
       // If the theme is set to Auto, we need to use device
