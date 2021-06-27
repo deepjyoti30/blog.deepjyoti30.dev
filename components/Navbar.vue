@@ -1,9 +1,29 @@
 <template>
   <nav
-    class="navbar__container bg-white dark:bg-darkhigh border-b border-gray-100 dark:border-gray-900"
+    class="
+      navbar__container
+      bg-white
+      dark:bg-darkhigh
+      border-b border-gray-100
+      dark:border-gray-900
+    "
   >
     <div
-      class="navbar md:w-2/5 mr-auto ml-auto md:flex md:justify-between md:items-center py-4 md:px-0 px-4 dm-sans text-lg dark:text-white"
+      class="
+        navbar
+        md:w-2/5
+        mr-auto
+        ml-auto
+        md:flex
+        md:justify-between
+        md:items-center
+        py-4
+        md:px-0
+        px-4
+        dm-sans
+        text-lg
+        dark:text-white
+      "
     >
       <div class="left--content md:block flex justify-between items-center">
         <nuxt-link
@@ -27,7 +47,15 @@
             />
           </span>
           <span
-            class="name ml-4 text-lg text-gray-800 dark:text-gray-200 font-semibold md:inline hidden"
+            class="
+              name
+              ml-4
+              text-lg text-gray-800
+              dark:text-gray-200
+              font-semibold
+              md:inline
+              hidden
+            "
             >Deepjyoti Barman</span
           >
         </nuxt-link>
@@ -67,7 +95,13 @@
       <transition name="navbar-expand">
         <div
           v-if="expandedBar"
-          class="links__container expanded--content w-full flex flex-col flex-wrap justify-between"
+          class="
+            links__container
+            expanded--content
+            w-full
+            flex flex-col flex-wrap
+            justify-between
+          "
         >
           <div class="links">
             <nuxt-link to="/">Posts</nuxt-link>
@@ -106,17 +140,27 @@ import {
   RssIcon,
   MenuIcon,
   XIcon,
+  SunriseIcon,
   ExternalLinkIcon,
 } from 'vue-feather-icons'
 import { theme } from '~/mixins/theme'
 
 export default {
-  components: { MoonIcon, RssIcon, SunIcon, MenuIcon, XIcon, ExternalLinkIcon },
+  components: {
+    MoonIcon,
+    RssIcon,
+    SunIcon,
+    MenuIcon,
+    XIcon,
+    ExternalLinkIcon,
+    SunriseIcon,
+  },
   mixins: [theme],
   data() {
     return {
       isDark: false,
       expandedBar: false,
+      themeOptions: ['auto', 'dark', 'light'],
     }
   },
   methods: {
@@ -194,13 +238,17 @@ export default {
        *
        * And finally the fallback would be light.
        */
-      if (this.isThemeSaved()) {
-        this.toggleTheme(this.isDarkTheme(), true)
-        return
+      const themeFetched = this.getTheme()
+
+      // If the theme is not saved, use auto as fallback
+      // If the theme is set to Auto, we need to use device
+      // theme as well.
+      if (!themeFetched || themeFetched == 'auto') {
+        return this.toggleTheme(this.isDeviceDarkTheme(), true)
       }
 
-      // Else we need a fallback
-      this.toggleTheme(this.isDeviceDarkTheme(), true)
+      // Else toggle the theme based on users preference
+      this.toggleTheme(this.isDarkTheme(), true)
     },
     toggleBar: function () {
       this.expandedBar = !this.expandedBar
