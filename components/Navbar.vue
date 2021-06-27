@@ -94,7 +94,7 @@
               class="sun--icon"
               size="1.1x"
             />
-            <SunriseIcon v-else class="sun--icon" size="1.1x" />
+            <SunriseIcon v-else class="sunrise--icon" size="1.1x" />
           </button>
           <a href="/feed.xml" type="button" class="quick-btn button-cust">
             <RssIcon size="1.1x" />
@@ -329,6 +329,10 @@ export default {
           .sun--icon {
             color: $yellow;
             fill: $yellow;
+          }
+
+          .sunrise--icon {
+            color: $blue;
           }
         }
       }
