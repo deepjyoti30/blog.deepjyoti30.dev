@@ -130,9 +130,24 @@
             </a>
           </div>
           <div class="quicks flex items-center mt-6 mb-10 justify-center">
-            <button type="button" class="quick-btn" @click="toggleDarkMode">
-              <MoonIcon v-if="!isDark" size="2x" />
-              <SunIcon v-else class="sun--icon" size="2x" />
+            <button
+              type="button"
+              class="quick-btn"
+              @click="toggleDarkMode"
+              :title="getThemeChangeText"
+              aria-label="Theme Change button"
+            >
+              <MoonIcon
+                v-if="currentThemeIndex == 2"
+                size="2x"
+                class="fill-current"
+              />
+              <SunIcon
+                v-else-if="currentThemeIndex == 1"
+                class="sun--icon"
+                size="2x"
+              />
+              <SunriseIcon v-else class="sunrise--icon" size="2x" />
             </button>
             <a href="/feed.xml" type="button" class="quick-btn">
               <RssIcon size="2x" />
