@@ -243,7 +243,7 @@ export default {
       // If the theme is not saved, use auto as fallback
       // If the theme is set to Auto, we need to use device
       // theme as well.
-      if (!themeFetched || themeFetched == 'auto') {
+      if (themeFetched == 'auto' || !themeFetched) {
         return this.toggleTheme(this.isDeviceDarkTheme(), true)
       }
 
