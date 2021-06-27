@@ -1,9 +1,29 @@
 <template>
   <nav
-    class="navbar__container bg-white dark:bg-darkhigh border-b border-gray-100 dark:border-gray-900"
+    class="
+      navbar__container
+      bg-white
+      dark:bg-darkhigh
+      border-b border-gray-100
+      dark:border-gray-900
+    "
   >
     <div
-      class="navbar md:w-2/5 mr-auto ml-auto md:flex md:justify-between md:items-center py-4 md:px-0 px-4 dm-sans text-lg dark:text-white"
+      class="
+        navbar
+        md:w-2/5
+        mr-auto
+        ml-auto
+        md:flex
+        md:justify-between
+        md:items-center
+        py-4
+        md:px-0
+        px-4
+        dm-sans
+        text-lg
+        dark:text-white
+      "
     >
       <div class="left--content md:block flex justify-between items-center">
         <nuxt-link
@@ -27,7 +47,15 @@
             />
           </span>
           <span
-            class="name ml-4 text-lg text-gray-800 dark:text-gray-200 font-semibold md:inline hidden"
+            class="
+              name
+              ml-4
+              text-lg text-gray-800
+              dark:text-gray-200
+              font-semibold
+              md:inline
+              hidden
+            "
             >Deepjyoti Barman</span
           >
         </nuxt-link>
@@ -55,9 +83,20 @@
             type="button"
             class="quick-btn button-cust"
             @click="toggleDarkMode"
+            :title="getThemeChangeText"
+            aria-label="Theme Change button"
           >
-            <MoonIcon v-if="!isDark" size="1.1x" class="fill-current" />
-            <SunIcon v-else class="sun--icon" size="1.1x" />
+            <MoonIcon
+              v-if="currentThemeIndex == 2"
+              size="1.1x"
+              class="fill-current"
+            />
+            <SunIcon
+              v-else-if="currentThemeIndex == 1"
+              class="sun--icon"
+              size="1.1x"
+            />
+            <SunriseIcon v-else class="sunrise--icon" size="1.1x" />
           </button>
           <a href="/feed.xml" type="button" class="quick-btn button-cust">
             <RssIcon size="1.1x" />
@@ -67,7 +106,13 @@
       <transition name="navbar-expand">
         <div
           v-if="expandedBar"
-          class="links__container expanded--content w-full flex flex-col flex-wrap justify-between"
+          class="
+            links__container
+            expanded--content
+            w-full
+            flex flex-col flex-wrap
+            justify-between
+          "
         >
           <div class="links">
             <nuxt-link to="/">Posts</nuxt-link>
@@ -85,9 +130,24 @@
             </a>
           </div>
           <div class="quicks flex items-center mt-6 mb-10 justify-center">
-            <button type="button" class="quick-btn" @click="toggleDarkMode">
-              <MoonIcon v-if="!isDark" size="2x" />
-              <SunIcon v-else class="sun--icon" size="2x" />
+            <button
+              type="button"
+              class="quick-btn"
+              @click="toggleDarkMode"
+              :title="getThemeChangeText"
+              aria-label="Theme Change button"
+            >
+              <MoonIcon
+                v-if="currentThemeIndex == 2"
+                size="2x"
+                class="fill-current"
+              />
+              <SunIcon
+                v-else-if="currentThemeIndex == 1"
+                class="sun--icon"
+                size="2x"
+              />
+              <SunriseIcon v-else class="sunrise--icon" size="2x" />
             </button>
             <a href="/feed.xml" type="button" class="quick-btn">
               <RssIcon size="2x" />
@@ -106,17 +166,28 @@ import {
   RssIcon,
   MenuIcon,
   XIcon,
+  SunriseIcon,
   ExternalLinkIcon,
 } from 'vue-feather-icons'
 import { theme } from '~/mixins/theme'
 
 export default {
-  components: { MoonIcon, RssIcon, SunIcon, MenuIcon, XIcon, ExternalLinkIcon },
+  components: {
+    MoonIcon,
+    RssIcon,
+    SunIcon,
+    MenuIcon,
+    XIcon,
+    ExternalLinkIcon,
+    SunriseIcon,
+  },
   mixins: [theme],
   data() {
     return {
       isDark: false,
       expandedBar: false,
+      currentThemeIndex: 0,
+      themeOptions: ['auto', 'dark', 'light'],
     }
   },
   methods: {
@@ -173,13 +244,35 @@ export default {
 
       checkDark ? this.disableDarkMode() : this.enableDarkMode()
     },
+    toggleThemeIndex: function () {
+      /**
+       * Toggle the index of the theme.
+       *
+       * We need to check if the index is equal to
+       * the length of the theme options, if so then
+       * put it back to 0.
+       */
+      if (this.currentThemeIndex == this.themeOptions.length - 1)
+        return (this.currentThemeIndex = 0)
+      this.currentThemeIndex += 1
+    },
     toggleDarkMode: function () {
       // Toggle the theme
       // NOTE: This method is called only when the user clicks on the theme button change
       // because this will save the theme to the storage.
-      this.toggleTheme(this.isDark)
+      this.toggleThemeIndex()
 
-      this.setTheme(this.isDark ? 'dark' : 'light')
+      // Now we need to check what the theme is. If the theme is
+      // auto, we need to find the device theme and set it accordingly.
+      const currentTheme = this.themeOptions[this.currentThemeIndex]
+
+      // Set the theme in the app
+      if (currentTheme == 'auto')
+        this.toggleTheme(this.isDeviceDarkTheme(), true)
+      else this.toggleTheme(currentTheme == 'dark', true)
+
+      // Now save the theme.
+      this.setTheme(currentTheme)
     },
     determineTheme: function () {
       /**
@@ -194,13 +287,18 @@ export default {
        *
        * And finally the fallback would be light.
        */
-      if (this.isThemeSaved()) {
-        this.toggleTheme(this.isDarkTheme(), true)
-        return
+      const themeFetched = this.getTheme()
+      this.currentThemeIndex = this.themeOptions.indexOf(themeFetched)
+
+      // If the theme is not saved, use auto as fallback
+      // If the theme is set to Auto, we need to use device
+      // theme as well.
+      if (themeFetched == 'auto' || !themeFetched) {
+        return this.toggleTheme(this.isDeviceDarkTheme(), true)
       }
 
-      // Else we need a fallback
-      this.toggleTheme(this.isDeviceDarkTheme(), true)
+      // Else toggle the theme based on users preference
+      this.toggleTheme(this.isDarkTheme(), true)
     },
     toggleBar: function () {
       this.expandedBar = !this.expandedBar
@@ -208,6 +306,19 @@ export default {
       // Disable scroll on body
       const overflow = this.expandedBar ? 'hidden' : 'visible'
       document.querySelector('body').style.overflow = overflow
+    },
+  },
+  computed: {
+    getThemeChangeText() {
+      // We need to show that the click will set the
+      // theme to the next option available, so we
+      // will have to increase the value of the index
+      // by 1 or reset to 0.
+      var tempIndex
+      if (this.currentThemeIndex == this.themeOptions.length - 1) tempIndex = 0
+      else tempIndex = this.currentThemeIndex + 1
+
+      return `Set theme to ${this.themeOptions[tempIndex]}`
     },
   },
   mounted() {
@@ -248,6 +359,11 @@ export default {
           .sun--icon {
             color: $yellow;
             fill: $yellow;
+          }
+
+          .sunrise--icon {
+            color: $blue;
+            fill: $blue;
           }
         }
       }

@@ -2,7 +2,7 @@ export const theme = {
     data() {
         return {
             themeKey: "blogTheme",
-            validValues: ["light", "dark"]
+            validValues: ["light", "dark", "auto"]
         }
     },
     methods: {
