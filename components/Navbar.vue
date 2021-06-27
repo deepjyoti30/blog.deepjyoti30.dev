@@ -83,6 +83,8 @@
             type="button"
             class="quick-btn button-cust"
             @click="toggleDarkMode"
+            :title="getThemeChangeText"
+            aria-label="Theme Change button"
           >
             <MoonIcon
               v-if="currentThemeIndex == 2"
@@ -291,6 +293,19 @@ export default {
       document.querySelector('body').style.overflow = overflow
     },
   },
+  computed: {
+    getThemeChangeText() {
+      // We need to show that the click will set the
+      // theme to the next option available, so we
+      // will have to increase the value of the index
+      // by 1 or reset to 0.
+      var tempIndex
+      if (this.currentThemeIndex == this.themeOptions.length - 1) tempIndex = 0
+      else tempIndex = this.currentThemeIndex + 1
+
+      return `Set theme to ${this.themeOptions[tempIndex]}`
+    },
+  },
   mounted() {
     this.determineTheme()
   },
@@ -333,6 +348,7 @@ export default {
 
           .sunrise--icon {
             color: $blue;
+            fill: $blue;
           }
         }
       }
