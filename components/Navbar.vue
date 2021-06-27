@@ -84,8 +84,17 @@
             class="quick-btn button-cust"
             @click="toggleDarkMode"
           >
-            <MoonIcon v-if="!isDark" size="1.1x" class="fill-current" />
-            <SunIcon v-else class="sun--icon" size="1.1x" />
+            <MoonIcon
+              v-if="currentThemeIndex == 1"
+              size="1.1x"
+              class="fill-current"
+            />
+            <SunIcon
+              v-else-if="currentThemeIndex == 2"
+              class="sun--icon"
+              size="1.1x"
+            />
+            <SunriseIcon v-else class="sun--icon" size="1.1x" />
           </button>
           <a href="/feed.xml" type="button" class="quick-btn button-cust">
             <RssIcon size="1.1x" />
