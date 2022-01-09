@@ -90,12 +90,12 @@
               <button title="Change Theme" aria-label="Change Theme">
                 <client-only>
                   <MoonIcon
-                    v-if="currentThemeIndex == 2"
+                    v-if="currentThemeIndex == 1"
                     size="1.1x"
                     class="fill-current"
                   />
                   <SunIcon
-                    v-else-if="currentThemeIndex == 1"
+                    v-else-if="currentThemeIndex == 2"
                     class="sun--icon"
                     size="1.1x"
                   />
