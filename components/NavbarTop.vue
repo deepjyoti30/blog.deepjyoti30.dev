@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar--top__container bg-white">
+  <div class="navbar--top__container bg-white dark:bg-darkhigh">
     <div
       class="
         navbar--top
@@ -7,7 +7,8 @@
         text-sm text-gray-500
         flex
         justify-center
-        border border-gray-100
+        border-b border-gray-100
+        dark:border-gray-800
       "
     >
       <div class="text--container flex">
@@ -21,6 +22,7 @@
             px-2
             uppercase
             font-semibold
+            dark:bg-green-700 dark:text-green-100
           "
         >
           New
