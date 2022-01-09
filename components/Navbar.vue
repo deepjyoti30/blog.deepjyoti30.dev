@@ -11,12 +11,11 @@
     <div
       class="
         navbar
-        md:w-2/5
+        lg:w-3/5
+        md:w-4/5
         mr-auto
         ml-auto
-        md:flex
-        md:justify-between
-        md:items-center
+        md:flex md:justify-between md:items-center
         py-4
         md:px-0
         px-4
