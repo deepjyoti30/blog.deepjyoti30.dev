@@ -11,12 +11,11 @@
     <div
       class="
         navbar
-        md:w-2/5
+        lg:w-3/5
+        md:w-4/5
         mr-auto
         ml-auto
-        md:flex
-        md:justify-between
-        md:items-center
+        md:flex md:justify-between md:items-center
         py-4
         md:px-0
         px-4
@@ -79,28 +78,83 @@
         </div>
         <div class="separator h-5 w-0.5 mx-4 bg-customgreen"></div>
         <div class="quicks flex items-center">
-          <button
-            type="button"
-            class="quick-btn button-cust"
-            @click="toggleDarkMode"
-            :title="getThemeChangeText"
-            aria-label="Theme Change button"
-          >
-            <MoonIcon
-              v-if="currentThemeIndex == 2"
-              size="1.1x"
-              class="fill-current"
-            />
-            <SunIcon
-              v-else-if="currentThemeIndex == 1"
-              class="sun--icon"
-              size="1.1x"
-            />
-            <SunriseIcon v-else class="sunrise--icon" size="1.1x" />
-          </button>
           <a href="/feed.xml" type="button" class="quick-btn button-cust">
             <RssIcon size="1.1x" />
           </a>
+          <div class="theme__container mr-3">
+            <div
+              class="theme mt-2 relative"
+              @mouseover="showThemeMenu = true"
+              @mouseleave="showThemeMenu = false"
+            >
+              <button title="Change Theme" aria-label="Change Theme">
+                <client-only>
+                  <MoonIcon
+                    v-if="currentThemeIndex == 2"
+                    size="1.1x"
+                    class="fill-current"
+                  />
+                  <SunIcon
+                    v-else-if="currentThemeIndex == 1"
+                    class="sun--icon"
+                    size="1.1x"
+                  />
+                  <SunriseIcon v-else class="sunrise--icon" size="1.1x" />
+                </client-only>
+              </button>
+              <transition name="theme-show">
+                <div
+                  v-if="showThemeMenu"
+                  class="
+                    theme--options
+                    absolute
+                    top-0
+                    md:left-0 md:right-auto
+                    right-0
+                    rounded-md
+                    border
+                    dark:border-gray-800
+                    shadow-lg
+                    bg-white
+                    dark:bg-darklow
+                    py-2
+                    px-5
+                    text-gray-600
+                    dark:text-gray-400
+                    md:origin-top-left
+                    origin-top-right
+                  "
+                >
+                  <div class="options">
+                    <button
+                      :class="currentThemeIndex == 2 ? 'active' : ''"
+                      title="Enable light theme"
+                      aria-label="Enable light theme"
+                      @click="setThemeIndex(2)"
+                    >
+                      Light
+                    </button>
+                    <button
+                      :class="currentThemeIndex == 1 ? 'active' : ''"
+                      title="Enable dark theme"
+                      aria-label="Enable dark theme"
+                      @click="setThemeIndex(1)"
+                    >
+                      Dark
+                    </button>
+                    <button
+                      :class="currentThemeIndex == 0 ? 'active' : ''"
+                      title="Sync theme with device"
+                      aria-label="Sync theme with device"
+                      @click="setThemeIndex(0)"
+                    >
+                      Auto
+                    </button>
+                  </div>
+                </div>
+              </transition>
+            </div>
+          </div>
         </div>
       </div>
       <transition name="navbar-expand">
@@ -188,6 +242,7 @@ export default {
       expandedBar: false,
       currentThemeIndex: 0,
       themeOptions: ['auto', 'dark', 'light'],
+      showThemeMenu: false,
     }
   },
   methods: {
@@ -255,6 +310,27 @@ export default {
       if (this.currentThemeIndex == this.themeOptions.length - 1)
         return (this.currentThemeIndex = 0)
       this.currentThemeIndex += 1
+    },
+    setThemeIndex: function (themeIndex) {
+      // Set the theme based on the passed index
+      // Now we need to check what the theme is. If the theme is
+      // auto, we need to find the device theme and set it accordingly.
+
+      // Set the current theme index as the passed one:
+      this.currentThemeIndex = themeIndex
+
+      const currentTheme = this.themeOptions[this.currentThemeIndex]
+
+      // Set the theme in the app
+      if (currentTheme == 'auto')
+        this.toggleTheme(this.isDeviceDarkTheme(), true)
+      else this.toggleTheme(currentTheme == 'dark', true)
+
+      // Now save the theme.
+      this.setTheme(currentTheme)
+
+      // Hide the menu
+      this.showThemeMenu = false
     },
     toggleDarkMode: function () {
       // Toggle the theme
@@ -425,6 +501,32 @@ export default {
   .navbar-expand-enter-active,
   .navbar-expand-leave-active {
     transition: opacity, transform 200ms ease-in-out;
+  }
+}
+
+.theme__container {
+  .theme--options {
+    .options {
+      button {
+        display: block;
+        @apply p-1 hover:text-green-500 transition ease-in duration-100 font-medium;
+        &.active {
+          @apply text-green-500;
+        }
+      }
+    }
+  }
+  .theme-show-enter,
+  .theme-show-leave-to {
+    transform: scale(0.5);
+    transform-origin: left center;
+  }
+  .theme-show-enter-to,
+  .theme-show-leave {
+    transform: scale(1);
+  }
+  .theme-show-enter-active {
+    transition: transform 70ms;
   }
 }
 </style>
