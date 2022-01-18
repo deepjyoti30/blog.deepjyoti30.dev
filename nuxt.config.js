@@ -75,7 +75,7 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
-  css: ['~/assets/scss/app.scss', '~/assets/css/dracula.css', '~/assets/css/fonts/dm-sans.css', '~/assets/css/fonts/roboto.css', '~/assets/css/fonts/jetbrains-mono.css'],
+  css: ['~/assets/scss/app.scss', '~/assets/css/dracula.css', '~/assets/css/fonts/dm-sans.css', '~/assets/css/fonts/roboto.css', '~/assets/css/fonts/jetbrains-mono.css', '~/assets/css/fonts/merriweather.css'],
 
   plugins: [
     '~/plugins/micromodal.client.js'
