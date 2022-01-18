@@ -1,6 +1,6 @@
 <template>
   <div class="cover__container mt-4">
-    <img :src="getCover" alt="Post cover" loading="lazy" class="rounded" />
+    <img :src="getCover" alt="Post cover" loading="lazy" class="md:rounded" />
   </div>
 </template>
 
