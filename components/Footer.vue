@@ -1,7 +1,19 @@
 <template>
-  <div class="footer__container border-t-2 dark:border-gray-700 mt-6">
+  <div
+    class="footer__container border-t border-gray-200 dark:border-gray-700 mt-6"
+  >
     <div
-      class="bottom--content md:w-3/5 mr-auto ml-auto py-5 md:flex md:justify-between text-gray-500 dark:text-gray-400 text-center"
+      class="
+        bottom--content
+        md:w-3/5
+        mr-auto
+        ml-auto
+        py-5
+        md:flex md:justify-between
+        text-gray-500
+        dark:text-gray-400
+        text-center
+      "
     >
       <div class="copyright--content">© 2021-Present Deepjyoti Barman</div>
       <div class="social--content inline-flex md:mt-0 mt-6">
